@@ -261,19 +261,19 @@ function App() {
                 <div className="icon-user text-white text-lg"></div>
               </div>
               <div>
-                <h3 className="text-xl font-black text-black">Developer & Maintainer</h3>
-                <p className="text-sm text-gray-600">BrainFuel by zoxilsi</p>
+                <h3 className="text-xl font-black text-black dark:text-white">Developer & Maintainer</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">BrainFuel by zoxilsi</p>
               </div>
             </div>
             
-            <div className="bg-white rounded-xl p-6 border-3 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,0.9)]">
+            <div className="note-card bg-white rounded-xl p-6 border-3 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,0.9)]">
               <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="flex items-center gap-4">
                   <img src="assets/abhi.jpg" alt="ABHIJITH T" className="w-16 h-16 object-cover rounded-xl border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)]" />
                   <div>
-                    <h3 className="text-xl font-black text-black">ABHIJITH T</h3>
-                    <p className="text-gray-600 font-bold">Vibe Coder</p>
-                    <p className="text-sm text-gray-500 mt-1">MCA 2024-2026</p>
+                    <h3 className="text-xl font-black text-black dark:text-white">ABHIJITH T</h3>
+                    <p className="text-gray-600 dark:text-gray-300 font-bold">Vibe Coder</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">MCA 2024-2026</p>
                   </div>
                 </div>
                 
@@ -314,11 +314,11 @@ function App() {
                 </div>
               </div>
               
-              <div className="mt-6 pt-6 border-t-2 border-gray-200 text-center">
-                <p className="text-gray-600 font-bold">
+              <div className="mt-6 pt-6 border-t-2 border-gray-200 dark:border-gray-600 text-center">
+                <p className="text-gray-600 dark:text-gray-300 font-bold">
                   © 2025 MCA study materials. Made for students, by students.
                 </p>
-                <p className="text-sm text-gray-500 mt-2">
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
                   Empowering MCA students with comprehensive study materials and resources
                 </p>
               </div>
@@ -349,6 +349,8 @@ function App() {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ErrorBoundary>
-    <App />
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
   </ErrorBoundary>
 );

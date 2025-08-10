@@ -1,0 +1,347 @@
+/* Theme CSS Variables */
+:root {
+  /* Light Theme Colors (Default) */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f0f0f0;
+  --bg-tertiary: #f8f9fa;
+  --bg-card: #ffffff;
+  --bg-button-primary: #3b82f6;
+  --bg-button-secondary: #ffffff;
+  --bg-button-accent: #ef4444;
+  --bg-button-accent-hover: #dc2626;
+  --bg-gradient-primary: linear-gradient(to right, #3b82f6, #8b5cf6);
+  --bg-gradient-accent: linear-gradient(to right, #ef4444, #f97316);
+  
+  /* Text Colors */
+  --text-primary: #000000;
+  --text-secondary: #374151;
+  --text-tertiary: #6b7280;
+  --text-muted: #9ca3af;
+  --text-white: #ffffff;
+  --text-accent: #3b82f6;
+  
+  /* Border Colors */
+  --border-primary: #000000;
+  --border-secondary: #d1d5db;
+  --border-accent: #3b82f6;
+  
+  /* Shadow Colors */
+  --shadow-primary: rgba(0, 0, 0, 0.9);
+  --shadow-secondary: rgba(0, 0, 0, 0.1);
+  --shadow-accent: rgba(59, 130, 246, 0.2);
+  
+  /* Image Filters */
+  --image-filter: none;
+  --image-opacity: 1;
+}
+
+/* Dark Theme Colors */
+[data-theme="dark"] {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --bg-card: #1e293b;
+  --bg-button-primary: #3b82f6;
+  --bg-button-secondary: #334155;
+  --bg-button-accent: #ef4444;
+  --bg-button-accent-hover: #dc2626;
+  --bg-gradient-primary: linear-gradient(to right, #3b82f6, #8b5cf6);
+  --bg-gradient-accent: linear-gradient(to right, #ef4444, #f97316);
+  
+  /* Text Colors */
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-tertiary: #94a3b8;
+  --text-muted: #64748b;
+  --text-white: #ffffff;
+  --text-accent: #60a5fa;
+  
+  /* Border Colors */
+  --border-primary: #475569;
+  --border-secondary: #475569;
+  --border-accent: #60a5fa;
+  
+  /* Shadow Colors */
+  --shadow-primary: rgba(255, 255, 255, 0.1);
+  --shadow-secondary: rgba(255, 255, 255, 0.05);
+  --shadow-accent: rgba(96, 165, 250, 0.2);
+  
+  /* Image Filters */
+  --image-filter: brightness(0.8) contrast(1.1);
+  --image-opacity: 0.9;
+}
+
+/* Apply CSS Variables to Elements */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Header Styles */
+header {
+  background-color: var(--bg-secondary) !important;
+  border-bottom-color: var(--border-primary) !important;
+}
+
+/* Card Styles */
+.note-card {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-primary) !important;
+  box-shadow: 6px 6px 0px 0px var(--shadow-primary) !important;
+}
+
+.note-card:hover {
+  box-shadow: 8px 8px 0px 0px var(--shadow-primary) !important;
+}
+
+/* Button Styles */
+.btn-primary {
+  background-color: var(--bg-button-primary) !important;
+  color: var(--text-white) !important;
+  border-color: var(--border-primary) !important;
+  box-shadow: 4px 4px 0px 0px var(--shadow-primary) !important;
+}
+
+.btn-primary:hover {
+  box-shadow: 6px 6px 0px 0px var(--shadow-primary) !important;
+}
+
+.btn-primary:active {
+  box-shadow: 2px 2px 0px 0px var(--shadow-primary) !important;
+}
+
+.btn-secondary {
+  background-color: var(--bg-button-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-primary) !important;
+  box-shadow: 4px 4px 0px 0px var(--shadow-primary) !important;
+}
+
+.btn-secondary:hover {
+  box-shadow: 6px 6px 0px 0px var(--shadow-primary) !important;
+}
+
+.btn-secondary:active {
+  box-shadow: 2px 2px 0px 0px var(--shadow-primary) !important;
+}
+
+/* Semester Card Styles */
+.semester-card {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-primary) !important;
+  color: var(--text-primary) !important;
+  box-shadow: 3px 3px 0px 0px var(--shadow-primary) !important;
+}
+
+.semester-card:hover {
+  box-shadow: 5px 5px 0px 0px var(--shadow-primary) !important;
+}
+
+.semester-card.selected {
+  background: var(--bg-gradient-primary) !important;
+  color: var(--text-white) !important;
+}
+
+.semester-card.selected .semester-number {
+  background-color: var(--text-white) !important;
+  color: var(--bg-button-primary) !important;
+}
+
+/* Course Card Styles */
+.course-card {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-primary) !important;
+  color: var(--text-primary) !important;
+  box-shadow: 3px 3px 0px 0px var(--shadow-primary) !important;
+}
+
+.course-card:hover {
+  box-shadow: 5px 5px 0px 0px var(--shadow-primary) !important;
+}
+
+/* Search Input Styles */
+.search-input {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-primary) !important;
+  color: var(--text-primary) !important;
+  box-shadow: 2px 2px 0px var(--shadow-primary) !important;
+}
+
+.search-input:focus {
+  box-shadow: 3px 3px 0px var(--shadow-primary) !important;
+}
+
+.search-input::placeholder {
+  color: var(--text-muted) !important;
+}
+
+/* GitHub Button Styles */
+.github-button {
+  background-color: #1f2937 !important;
+  color: var(--text-white) !important;
+  border-color: var(--border-primary) !important;
+  box-shadow: 2px 2px 0px var(--shadow-primary) !important;
+}
+
+.github-button:hover {
+  background-color: #374151 !important;
+  box-shadow: 3px 3px 0px var(--shadow-primary) !important;
+}
+
+/* Question Papers Tab Styles */
+.qp-tab {
+  background: var(--bg-gradient-accent) !important;
+  color: var(--text-white) !important;
+  border-color: var(--border-primary) !important;
+  box-shadow: 4px 4px 0px var(--shadow-primary) !important;
+}
+
+.qp-tab:hover {
+  box-shadow: 6px 6px 0px var(--shadow-primary) !important;
+}
+
+.qp-tab .qp-icon {
+  background-color: var(--text-white) !important;
+  color: var(--bg-button-accent) !important;
+}
+
+/* RIT Tab Styles */
+.rit-tab {
+  background-color: #d1d5db !important;
+  color: #6b7280 !important;
+  border-color: #9ca3af !important;
+  box-shadow: 3px 3px 0px var(--shadow-secondary) !important;
+}
+
+.rit-tab .rit-icon {
+  background-color: #e5e7eb !important;
+  color: #6b7280 !important;
+  border-color: #9ca3af !important;
+}
+
+/* Footer Styles */
+footer, .footer {
+  background-color: var(--bg-card) !important;
+  border-top-color: var(--border-secondary) !important;
+  color: var(--text-muted) !important;
+}
+
+footer a, .footer a {
+  color: var(--text-accent) !important;
+}
+
+/* Image Adaptations for Dark Mode */
+[data-theme="dark"] img {
+  filter: var(--image-filter);
+  opacity: var(--image-opacity);
+}
+
+/* Additional Dark Mode Support for Text Elements */
+[data-theme="dark"] .text-black {
+  color: var(--text-white) !important;
+}
+
+[data-theme="dark"] .text-gray-600 {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .text-gray-500 {
+  color: var(--text-tertiary) !important;
+}
+
+[data-theme="dark"] .bg-white {
+  background-color: var(--bg-card) !important;
+}
+
+[data-theme="dark"] .border-black {
+  border-color: var(--border-primary) !important;
+}
+
+/* Dark Mode Overrides for Common Tailwind Classes */
+[data-theme="dark"] .bg-gray-50 {
+  background-color: var(--bg-tertiary) !important;
+}
+
+[data-theme="dark"] .bg-gray-100 {
+  background-color: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] .border-gray-200 {
+  border-color: var(--border-secondary) !important;
+}
+
+[data-theme="dark"] .border-gray-300 {
+  border-color: var(--border-secondary) !important;
+}
+
+[data-theme="dark"] .border-gray-400 {
+  border-color: var(--border-secondary) !important;
+}
+
+/* Ensure proper contrast for interactive elements */
+[data-theme="dark"] .hover\:bg-gray-50:hover {
+  background-color: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] .hover\:bg-gray-100:hover {
+  background-color: var(--bg-tertiary) !important;
+}
+
+/* Smooth Transitions for All Elements */
+* {
+  transition: background-color 0.3s ease, 
+              color 0.3s ease, 
+              border-color 0.3s ease, 
+              box-shadow 0.3s ease,
+              filter 0.3s ease,
+              opacity 0.3s ease;
+}
+
+/* Theme Toggle Button Specific Styles */
+.theme-toggle-btn {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-primary) !important;
+  color: var(--text-primary) !important;
+  box-shadow: 2px 2px 0px var(--shadow-primary) !important;
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--bg-secondary) !important;
+  box-shadow: 3px 3px 0px var(--shadow-primary) !important;
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 768px) {
+  .theme-toggle-btn {
+    padding: 0.5rem !important;
+  }
+}
+
+/* Focus States for Accessibility */
+.theme-toggle-btn:focus {
+  outline: 2px solid var(--border-accent);
+  outline-offset: 2px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  :root {
+    --border-primary: #000000;
+    --text-primary: #000000;
+    --bg-primary: #ffffff;
+  }
+  
+  [data-theme="dark"] {
+    --border-primary: #ffffff;
+    --text-primary: #ffffff;
+    --bg-primary: #000000;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}

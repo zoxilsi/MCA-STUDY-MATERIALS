@@ -53,7 +53,7 @@ function CourseCard({ course, onViewDetails }) {
     
     return (
       <div 
-        className={`bg-white rounded-xl p-6 border-3 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,0.9)] transition-all duration-200 relative ${
+        className={`course-card bg-white rounded-xl p-6 border-3 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,0.9)] transition-all duration-200 relative ${
           isClickable ? 'cursor-pointer transform hover:scale-105' : ''
         }`}
         onClick={handleCardClick}
@@ -87,13 +87,13 @@ function CourseCard({ course, onViewDetails }) {
           
           <div className="text-right">
             <div className="text-xs font-bold text-gray-500 mb-1">{course.code}</div>
-            <div className="px-2 py-1 bg-gray-100 text-gray-700 text-xs font-bold rounded border border-black">
+            <div className="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 text-xs font-bold rounded border border-black dark:border-gray-500">
               {course.credits} Credits
             </div>
           </div>
         </div>
         
-        <h3 className="text-lg font-black text-black mb-2 line-clamp-2">
+        <h3 className="text-lg font-black text-black dark:text-white mb-2 line-clamp-2">
           {course.name}
         </h3>
         
