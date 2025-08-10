@@ -51,6 +51,11 @@
 </head>
 <body>
     <div id="root"></div>
+      <h2>Upload PDF Test</h2>
+  <form action="http://localhost:3000/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" />
+    <button type="submit">Upload</button>
+  </form>
     <script type="text/babel" src="components/Header.js"></script>
     <script type="text/babel" src="components/SemesterCard.js"></script>
     <script type="text/babel" src="components/CourseCard.js"></script>
