@@ -21,29 +21,437 @@
 
     <!-- Predefined Tailwind CSS, use it as needed, or update base on your -->
     <style type="text/tailwindcss">
+    :root {
+        --bg-primary: #ffffff;
+        --bg-secondary: #f0f0f0;
+        --bg-tertiary: #f8f9fa;
+        --text-primary: #000000;
+        --text-secondary: #374151;
+        --text-muted: #6b7280;
+        --border-primary: #000000;
+        --border-secondary: #d1d5db;
+        --shadow-primary: rgba(0,0,0,0.9);
+        --shadow-secondary: rgba(0,0,0,0.1);
+        --accent-blue: #3b82f6;
+        --accent-purple: #8b5cf6;
+        --accent-red: #ef4444;
+        --accent-orange: #f97316;
+        --accent-green: #10b981;
+    }
+
+    [data-theme="dark"] {
+        --bg-primary: #000000;
+        --bg-secondary: #0a0a0a;
+        --bg-tertiary: #1a1a1a;
+        --text-primary: #ffffff;
+        --text-secondary: #e2e8f0;
+        --text-muted: #94a3b8;
+        --border-primary: #2d3748;
+        --border-secondary: #4a5568;
+        --shadow-primary: rgba(0,0,0,0.7);
+        --shadow-secondary: rgba(0,0,0,0.4);
+        --accent-blue: #3b82f6;
+        --accent-purple: #8b5cf6;
+        --accent-red: #ef4444;
+        --accent-orange: #f97316;
+        --accent-green: #10b981;
+    }
+
+    [data-theme="dark"] .note-card {
+        box-shadow: 6px 6px 0px 0px var(--shadow-primary), 0 0 15px rgba(59, 130, 246, 0.1);
+        background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+        border-color: var(--border-primary);
+    }
+
+    [data-theme="dark"] .note-card:hover {
+        box-shadow: 8px 8px 0px 0px var(--shadow-primary), 0 0 20px rgba(59, 130, 246, 0.15);
+        transform: translateY(-2px);
+    }
+
+    [data-theme="dark"] .btn-primary,
+    [data-theme="dark"] .btn-secondary {
+        box-shadow: 4px 4px 0px 0px var(--shadow-primary), 0 0 10px rgba(59, 130, 246, 0.1);
+    }
+
+    [data-theme="dark"] .btn-primary:hover,
+    [data-theme="dark"] .btn-secondary:hover {
+        box-shadow: 6px 6px 0px 0px var(--shadow-primary), 0 0 15px rgba(59, 130, 246, 0.15);
+    }
+
+    [data-theme="dark"] .theme-toggle {
+        box-shadow: 2px 2px 0px 0px var(--shadow-primary), 0 0 8px rgba(59, 130, 246, 0.1);
+    }
+
+    [data-theme="dark"] .theme-toggle:hover {
+        box-shadow: 3px 3px 0px 0px var(--shadow-primary), 0 0 12px rgba(59, 130, 246, 0.15);
+    }
+
+    [data-theme="dark"] body {
+        background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #1a1a1a 100%);
+    }
+
+    [data-theme="dark"] .bg-theme-secondary {
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    }
+
+    [data-theme="dark"] .bg-theme-tertiary {
+        background: linear-gradient(135deg, #1a1a1a 0%, #262626 100%);
+    }
+
+    [data-theme="dark"] input,
+    [data-theme="dark"] select,
+    [data-theme="dark"] textarea {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        border-color: var(--border-primary);
+        color: #ffffff;
+    }
+
+    [data-theme="dark"] input:focus,
+    [data-theme="dark"] select:focus,
+    [data-theme="dark"] textarea:focus {
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        background: linear-gradient(135deg, var(--bg-tertiary) 0%, #262626 100%);
+    }
+
+    [data-theme="dark"] .border-theme-primary {
+        border-color: var(--border-primary);
+        position: relative;
+    }
+
+    [data-theme="dark"] .border-theme-primary::after {
+        content: '';
+        position: absolute;
+        top: -1px;
+        left: -1px;
+        right: -1px;
+        bottom: -1px;
+        background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+        border-radius: inherit;
+        z-index: -1;
+        opacity: 0.2;
+        filter: blur(2px);
+    }
+
+    [data-theme="dark"] .bg-gradient-to-r {
+        background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    }
+
+    [data-theme="dark"] .bg-gradient-to-r.from-red-500.to-orange-500 {
+        background: linear-gradient(90deg, var(--accent-red), var(--accent-orange));
+    }
+
+    [data-theme="dark"] .bg-gradient-to-r.from-purple-500.to-pink-500 {
+        background: linear-gradient(90deg, var(--accent-purple), #ec4899);
+    }
+
+    [data-theme="dark"] .bg-gradient-to-r.from-blue-500.to-purple-500 {
+        background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    }
+
+    [data-theme="dark"] .theme-toggle {
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        border-color: #3b82f6;
+        color: #3b82f6;
+        position: relative;
+        overflow: hidden;
+    }
+
+    [data-theme="dark"] .theme-toggle::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.15), transparent);
+        transition: left 0.5s;
+    }
+
+    [data-theme="dark"] .theme-toggle:hover::before {
+        left: 100%;
+    }
+
+    [data-theme="dark"] .theme-toggle:hover {
+        border-color: #60a5fa;
+        color: #60a5fa;
+        transform: scale(1.05);
+        background: linear-gradient(135deg, #1a1a1a 0%, #262626 100%);
+    }
+
+    [data-theme="dark"] .semester-button {
+        background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+        border-color: var(--border-primary);
+        color: var(--text-primary);
+    }
+
+    [data-theme="dark"] .semester-button:hover {
+        background: linear-gradient(135deg, var(--bg-tertiary) 0%, #1e3a8a 100%);
+        transform: translateY(-1px);
+    }
+
+    [data-theme="dark"] .semester-button.selected {
+        background: linear-gradient(90deg, #3b82f6, #60a5fa);
+        color: white;
+        border-color: #3b82f6;
+    }
+
+    [data-theme="dark"] .search-input {
+        background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+    }
+
+    /* Fix for light background colors in dark theme - ensures proper contrast */
+    [data-theme="dark"] .bg-blue-100 {
+        background-color: #1e3a8a !important;
+        color: #ffffff !important;
+    }
+
+    [data-theme="dark"] .bg-green-100 {
+        background-color: #065f46 !important;
+        color: #ffffff !important;
+    }
+
+    [data-theme="dark"] .bg-yellow-100 {
+        background-color: #92400e !important;
+        color: #ffffff !important;
+    }
+
+    [data-theme="dark"] .bg-red-100 {
+        background-color: #991b1b !important;
+        color: #ffffff !important;
+    }
+
+    [data-theme="dark"] .bg-purple-100 {
+        background-color: #581c87 !important;
+        color: #ffffff !important;
+    }
+
+    [data-theme="dark"] .bg-pink-100 {
+        background-color: #831843 !important;
+        color: #ffffff !important;
+    }
+
+    [data-theme="dark"] .bg-indigo-100 {
+        background-color: #3730a3 !important;
+        color: #ffffff !important;
+    }
+
+    [data-theme="dark"] .bg-gray-100 {
+        background-color: #374151 !important;
+        color: #ffffff !important;
+    }
+
+    /* Ensure text visibility when using light backgrounds with text-theme-secondary in dark theme */
+    [data-theme="dark"] .bg-blue-100.text-theme-secondary,
+    [data-theme="dark"] .bg-green-100.text-theme-secondary,
+    [data-theme="dark"] .bg-yellow-100.text-theme-secondary,
+    [data-theme="dark"] .bg-red-100.text-theme-secondary,
+    [data-theme="dark"] .bg-purple-100.text-theme-secondary,
+    [data-theme="dark"] .bg-pink-100.text-theme-secondary,
+    [data-theme="dark"] .bg-indigo-100.text-theme-secondary,
+    [data-theme="dark"] .bg-gray-100.text-theme-secondary {
+        color: #ffffff !important;
+    }
+
+    /* Enhanced contrast utility classes for better visibility in both themes */
+    /* These classes automatically handle contrast for light background colors in both light and dark themes */
+    .contrast-badge {
+        @apply px-2 py-1 border-2 border-theme-primary rounded font-bold text-xs;
+    }
+
+    [data-theme="light"] .contrast-badge.bg-blue-100 {
+        background-color: #dbeafe;
+        color: #1e40af;
+    }
+
+    [data-theme="light"] .contrast-badge.bg-green-100 {
+        background-color: #dcfce7;
+        color: #166534;
+    }
+
+    [data-theme="dark"] .contrast-badge.bg-blue-100 {
+        background-color: #1e3a8a;
+        color: #ffffff;
+    }
+
+    [data-theme="dark"] .contrast-badge.bg-green-100 {
+        background-color: #065f46;
+        color: #ffffff;
+    }
+
+    [data-theme="light"] .contrast-badge.bg-yellow-100 {
+        background-color: #fef3c7;
+        color: #92400e;
+    }
+
+    [data-theme="dark"] .contrast-badge.bg-yellow-100 {
+        background-color: #92400e;
+        color: #ffffff;
+    }
+
+    [data-theme="light"] .contrast-badge.bg-red-100 {
+        background-color: #fee2e2;
+        color: #991b1b;
+    }
+
+    [data-theme="dark"] .contrast-badge.bg-red-100 {
+        background-color: #991b1b;
+        color: #ffffff;
+    }
+
+    [data-theme="light"] .contrast-badge.bg-purple-100 {
+        background-color: #f3e8ff;
+        color: #581c87;
+    }
+
+    [data-theme="dark"] .contrast-badge.bg-purple-100 {
+        background-color: #581c87;
+        color: #ffffff;
+    }
+
+    [data-theme="dark"] .search-input:focus {
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        background: linear-gradient(135deg, var(--bg-tertiary) 0%, #262626 100%);
+    }
+
+    [data-theme="dark"] .card-hover {
+        transition: all 0.3s ease;
+    }
+
+    [data-theme="dark"] .card-hover:hover {
+        transform: translateY(-2px);
+        box-shadow: 8px 8px 0px 0px var(--shadow-primary), 0 0 20px rgba(59, 130, 246, 0.15);
+    }
+
+    [data-theme="dark"] .text-accent {
+        color: #3b82f6;
+    }
+
+    [data-theme="dark"] .text-accent-secondary {
+        color: #60a5fa;
+    }
+
+    [data-theme="dark"] .border-accent {
+        border-color: #3b82f6;
+    }
+
+    [data-theme="dark"] .bg-accent-subtle {
+        background: rgba(59, 130, 246, 0.1);
+    }
+
+    [data-theme="dark"] .shadow-glow {
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
+    }
+
+    [data-theme="dark"] .shadow-glow:hover {
+        box-shadow: 0 0 30px rgba(59, 130, 246, 0.15);
+    }
+
+    [data-theme="dark"] .gradient-border {
+        position: relative;
+        background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+    }
+
+    [data-theme="dark"] .gradient-border::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+        border-radius: inherit;
+        z-index: -1;
+        opacity: 0.3;
+    }
+
+    [data-theme="dark"] .text-shadow {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
     @layer base {
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
     }
 
     @layer components {
         .note-card {
-            @apply bg-white rounded-xl p-6 border-3 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,0.9)] transition-all duration-200;
+            @apply rounded-xl p-6 border-3 shadow-[6px_6px_0px_0px_var(--shadow-primary)] hover:shadow-[8px_8px_0px_0px_var(--shadow-primary)] transition-all duration-200;
+            background-color: var(--bg-secondary);
+            border-color: var(--border-primary);
         }
         
         .btn-primary {
-            @apply py-3 px-6 bg-blue-500 text-white font-black text-sm rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,0.9)] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] transition-all duration-200;
+            @apply py-3 px-6 font-black text-sm rounded-lg border-2 shadow-[4px_4px_0px_0px_var(--shadow-primary)] hover:shadow-[6px_6px_0px_0px_var(--shadow-primary)] active:shadow-[2px_2px_0px_0px_var(--shadow-primary)] transition-all duration-200;
+            background-color: var(--accent-blue);
+            color: var(--bg-primary);
+            border-color: var(--border-primary);
         }
         
         .btn-secondary {
-            @apply py-3 px-6 bg-white text-black font-black text-sm rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,0.9)] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] transition-all duration-200;
+            @apply py-3 px-6 font-black text-sm rounded-lg border-2 shadow-[4px_4px_0px_0px_var(--shadow-primary)] hover:shadow-[6px_6px_0px_0px_var(--shadow-primary)] active:shadow-[2px_2px_0px_0px_var(--shadow-primary)] transition-all duration-200;
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            border-color: var(--border-primary);
+        }
+
+        .theme-toggle {
+            @apply p-2 rounded-lg border-2 transition-all duration-200 hover:scale-105;
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            border-color: var(--border-primary);
+            box-shadow: 2px 2px 0px 0px var(--shadow-primary);
+        }
+
+        .theme-toggle:hover {
+            box-shadow: 3px 3px 0px 0px var(--shadow-primary);
         }
     }
 
     @layer utilities {
         .border-3 {
             border-width: 3px;
+        }
+
+        .bg-theme-primary {
+            background-color: var(--bg-primary);
+        }
+
+        .bg-theme-secondary {
+            background-color: var(--bg-secondary);
+        }
+
+        .bg-theme-tertiary {
+            background-color: var(--bg-tertiary);
+        }
+
+        .text-theme-primary {
+            color: var(--text-primary);
+        }
+
+        .text-theme-secondary {
+            color: var(--text-secondary);
+        }
+
+        .text-theme-muted {
+            color: var(--text-muted);
+        }
+
+        .border-theme-primary {
+            border-color: var(--border-primary);
+        }
+
+        .border-theme-secondary {
+            border-color: var(--border-secondary);
         }
     }
     </style>
@@ -66,7 +474,17 @@
     <script type="text/babel" src="utils/courseContent.js"></script>
     <script type="text/babel" src="utils/questionPapersData.js"></script>
     <script type="text/babel" src="app.js"></script>
-    <footer class="w-full bg-white border-t border-gray-300 text-center text-xs text-gray-400 py-2">
+    
+    <!-- Theme initialization script -->
+    <script>
+      // Initialize theme on page load
+      document.addEventListener('DOMContentLoaded', function() {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      });
+    </script>
+    
+    <footer class="w-full border-t text-center text-xs py-2 bg-theme-primary border-theme-secondary text-theme-muted">
       <span>
         Non-profit, non-revenue educational project to help students learn and share notes. No money is generated. For educational use only. Not affiliated with APJ Abdul Kalam Technological University. Copyright concerns? <a href="mailto:24mp2275@rit.ac.in" class="underline">Contact us</a>.
       </span>
