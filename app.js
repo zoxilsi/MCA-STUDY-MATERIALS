@@ -42,8 +42,28 @@ function App() {
     const [showQuestionPapers, setShowQuestionPapers] = React.useState(false);
     const [selectedQuestionPaperSemester, setSelectedQuestionPaperSemester] = React.useState(null);
     const [selectedQuestionPaperSubject, setSelectedQuestionPaperSubject] = React.useState(null);
+    const [currentTheme, setCurrentTheme] = React.useState(() => {
+      // Get theme from localStorage or default to 'light'
+      const savedTheme = localStorage.getItem('theme');
+      return savedTheme || 'light';
+    });
     
     const allCourses = curriculumData.getAllCourses();
+    
+    // Theme toggle function
+    const toggleTheme = () => {
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      setCurrentTheme(newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      // Update document attribute for CSS variables
+      document.documentElement.setAttribute('data-theme', newTheme);
+    };
+    
+    // Apply theme on component mount and theme change
+    React.useEffect(() => {
+      document.documentElement.setAttribute('data-theme', currentTheme);
+    }, [currentTheme]);
     
     // Make handleCourseDetails globally available
     window.handleCourseDetails = (course) => {
@@ -148,13 +168,15 @@ function App() {
     }
     
     return (
-      <div className="min-h-screen bg-[#f0f0f0]" data-name="app" data-file="app.js">
+      <div className="min-h-screen bg-theme-secondary" data-name="app" data-file="app.js">
         <Header 
           searchTerm={searchTerm}
           onSearchChange={setSearchTerm}
           selectedSemester={selectedSemester}
           onSemesterChange={setSelectedSemester}
           onQuestionPapersClick={handleQuestionPapersClick}
+          currentTheme={currentTheme}
+          onThemeToggle={toggleTheme}
         />
         
         <main className="max-w-6xl mx-auto p-6">
@@ -165,10 +187,10 @@ function App() {
           
           {searchTerm && (
             <div className="mb-6">
-              <h2 className="text-xl font-bold text-black mb-2">
+              <h2 className="text-xl font-bold text-theme-primary mb-2">
                 Search results for "{searchTerm}"
               </h2>
-              <p className="text-gray-600">
+              <p className="text-theme-secondary">
                 {filteredCourses.length} course{filteredCourses.length !== 1 ? 's' : ''} found across all semesters
               </p>
             </div>
@@ -176,8 +198,8 @@ function App() {
           
           {!searchTerm && (
             <div className="mb-6">
-              <h2 className="text-2xl font-black text-black mb-2">{selectedSemester}</h2>
-              <p className="text-gray-600">
+              <h2 className="text-2xl font-black text-theme-primary mb-2">{selectedSemester}</h2>
+              <p className="text-theme-secondary">
                 Explore {filteredCourses.length} courses organized by categories
               </p>
             </div>
@@ -192,11 +214,11 @@ function App() {
               </div>
             ) : (
               <div className="text-center py-12">
-                <div className="w-16 h-16 bg-gray-100 rounded-xl border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] flex items-center justify-center mx-auto mb-4">
-                  <div className="icon-search text-xl text-gray-400"></div>
+                <div className="w-16 h-16 bg-theme-tertiary rounded-xl border-2 border-theme-primary shadow-[3px_3px_0px_0px_var(--shadow-primary)] flex items-center justify-center mx-auto mb-4">
+                  <div className="icon-search text-xl text-theme-muted"></div>
                 </div>
-                <h3 className="text-lg font-bold text-black mb-2">No courses found</h3>
-                <p className="text-gray-600">Try searching with different keywords</p>
+                <h3 className="text-lg font-bold text-theme-primary mb-2">No courses found</h3>
+                <p className="text-theme-secondary">Try searching with different keywords</p>
               </div>
             )
           ) : (
@@ -257,23 +279,23 @@ function App() {
           {/* Maintainer Section */}
           <div className="mt-16 mb-8" data-name="maintainer-section">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl border-2 border-theme-primary shadow-[2px_2px_0px_0px_var(--shadow-primary)] flex items-center justify-center">
                 <div className="icon-user text-white text-lg"></div>
               </div>
               <div>
-                <h3 className="text-xl font-black text-black">Developer & Maintainer</h3>
-                <p className="text-sm text-gray-600">BrainFuel by zoxilsi</p>
+                <h3 className="text-xl font-black text-theme-primary">Developer & Maintainer</h3>
+                <p className="text-sm text-theme-secondary">BrainFuel by zoxilsi</p>
               </div>
             </div>
             
-            <div className="bg-white rounded-xl p-6 border-3 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,0.9)]">
+            <div className="bg-theme-secondary rounded-xl p-6 border-3 border-theme-primary shadow-[6px_6px_0px_0px_var(--shadow-primary)]">
               <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="flex items-center gap-4">
-                  <img src="assets/abhi.jpg" alt="ABHIJITH T" className="w-16 h-16 object-cover rounded-xl border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)]" />
+                  <img src="assets/abhi.jpg" alt="ABHIJITH T" className="w-16 h-16 object-cover rounded-xl border-2 border-theme-primary shadow-[3px_3px_0px_0px_var(--shadow-primary)]" />
                   <div>
-                    <h3 className="text-xl font-black text-black">ABHIJITH T</h3>
-                    <p className="text-gray-600 font-bold">Vibe Coder</p>
-                    <p className="text-sm text-gray-500 mt-1">MCA 2024-2026</p>
+                    <h3 className="text-xl font-black text-theme-primary">ABHIJITH T</h3>
+                    <p className="text-theme-secondary font-bold">Vibe Coder</p>
+                    <p className="text-sm text-theme-muted mt-1">MCA 2024-2026</p>
                   </div>
                 </div>
                 
@@ -282,7 +304,7 @@ function App() {
                     href="https://github.com/zoxilsi"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 bg-gray-900 hover:bg-gray-700 rounded-lg border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,0.9)] flex items-center justify-center transition-all"
+                    className="w-12 h-12 bg-gray-900 hover:bg-gray-700 rounded-lg border-2 border-theme-primary shadow-[3px_3px_0px_0px_var(--shadow-primary)] hover:shadow-[5px_5px_0px_0px_var(--shadow-primary)] flex items-center justify-center transition-all"
                   >
                     <div className="icon-github text-white text-lg"></div>
                   </a>
@@ -291,7 +313,7 @@ function App() {
                     href="https://linkedin.com/in/zoxilsi"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 bg-blue-600 hover:bg-blue-500 rounded-lg border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,0.9)] flex items-center justify-center transition-all"
+                    className="w-12 h-12 bg-blue-600 hover:bg-blue-500 rounded-lg border-2 border-theme-primary shadow-[3px_3px_0px_0px_var(--shadow-primary)] hover:shadow-[5px_5px_0px_0px_var(--shadow-primary)] flex items-center justify-center transition-all"
                   >
                     <div className="icon-linkedin text-white text-lg"></div>
                   </a>
@@ -300,25 +322,25 @@ function App() {
                     href="https://twitter.com/zoxilsi"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 bg-sky-500 hover:bg-sky-400 rounded-lg border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,0.9)] flex items-center justify-center transition-all"
+                    className="w-12 h-12 bg-sky-500 hover:bg-sky-400 rounded-lg border-2 border-theme-primary shadow-[3px_3px_0px_0px_var(--shadow-primary)] hover:shadow-[5px_5px_0px_0px_var(--shadow-primary)] flex items-center justify-center transition-all"
                   >
                     <div className="icon-twitter text-white text-lg"></div>
                   </a>
                   
                   <a
                     href="mailto:24mp2275@rit.ac.in"
-                    className="w-12 h-12 bg-green-600 hover:bg-green-500 rounded-lg border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,0.9)] flex items-center justify-center transition-all"
+                    className="w-12 h-12 bg-green-600 hover:bg-green-500 rounded-lg border-2 border-theme-primary shadow-[3px_3px_0px_0px_var(--shadow-primary)] hover:shadow-[5px_5px_0px_0px_var(--shadow-primary)] flex items-center justify-center transition-all"
                   >
                     <div className="icon-mail text-white text-lg"></div>
                   </a>
                 </div>
               </div>
               
-              <div className="mt-6 pt-6 border-t-2 border-gray-200 text-center">
-                <p className="text-gray-600 font-bold">
+              <div className="mt-6 pt-6 border-t-2 border-theme-secondary text-center">
+                <p className="text-theme-secondary font-bold">
                   © 2025 MCA study materials. Made for students, by students.
                 </p>
-                <p className="text-sm text-gray-500 mt-2">
+                <p className="text-sm text-theme-muted mt-2">
                   Empowering MCA students with comprehensive study materials and resources
                 </p>
               </div>
@@ -330,10 +352,10 @@ function App() {
   } catch (error) {
     console.error('App component error:', error);
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="min-h-screen flex items-center justify-center bg-theme-secondary">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Something went wrong</h1>
-          <p className="text-gray-600 mb-4">We're sorry, but something unexpected happened.</p>
+          <h1 className="text-2xl font-bold text-theme-primary mb-4">Something went wrong</h1>
+          <p className="text-theme-secondary mb-4">We're sorry, but something unexpected happened.</p>
           <button
             onClick={() => window.location.reload()}
             className="btn btn-black"

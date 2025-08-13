@@ -21,29 +21,124 @@
 
     <!-- Predefined Tailwind CSS, use it as needed, or update base on your -->
     <style type="text/tailwindcss">
+    :root {
+        --bg-primary: #ffffff;
+        --bg-secondary: #f0f0f0;
+        --bg-tertiary: #f8f9fa;
+        --text-primary: #000000;
+        --text-secondary: #374151;
+        --text-muted: #6b7280;
+        --border-primary: #000000;
+        --border-secondary: #d1d5db;
+        --shadow-primary: rgba(0,0,0,0.9);
+        --shadow-secondary: rgba(0,0,0,0.1);
+        --accent-blue: #3b82f6;
+        --accent-purple: #8b5cf6;
+        --accent-red: #ef4444;
+        --accent-orange: #f97316;
+        --accent-green: #10b981;
+    }
+
+    [data-theme="dark"] {
+        --bg-primary: #111827;
+        --bg-secondary: #1f2937;
+        --bg-tertiary: #374151;
+        --text-primary: #f9fafb;
+        --text-secondary: #d1d5db;
+        --text-muted: #9ca3af;
+        --border-primary: #4b5563;
+        --border-secondary: #6b7280;
+        --shadow-primary: rgba(0,0,0,0.6);
+        --shadow-secondary: rgba(0,0,0,0.3);
+        --accent-blue: #60a5fa;
+        --accent-purple: #a78bfa;
+        --accent-red: #f87171;
+        --accent-orange: #fb923c;
+        --accent-green: #34d399;
+    }
+
     @layer base {
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
     }
 
     @layer components {
         .note-card {
-            @apply bg-white rounded-xl p-6 border-3 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,0.9)] transition-all duration-200;
+            @apply rounded-xl p-6 border-3 shadow-[6px_6px_0px_0px_var(--shadow-primary)] hover:shadow-[8px_8px_0px_0px_var(--shadow-primary)] transition-all duration-200;
+            background-color: var(--bg-secondary);
+            border-color: var(--border-primary);
         }
         
         .btn-primary {
-            @apply py-3 px-6 bg-blue-500 text-white font-black text-sm rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,0.9)] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] transition-all duration-200;
+            @apply py-3 px-6 font-black text-sm rounded-lg border-2 shadow-[4px_4px_0px_0px_var(--shadow-primary)] hover:shadow-[6px_6px_0px_0px_var(--shadow-primary)] active:shadow-[2px_2px_0px_0px_var(--shadow-primary)] transition-all duration-200;
+            background-color: var(--accent-blue);
+            color: var(--bg-primary);
+            border-color: var(--border-primary);
         }
         
         .btn-secondary {
-            @apply py-3 px-6 bg-white text-black font-black text-sm rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,0.9)] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] transition-all duration-200;
+            @apply py-3 px-6 font-black text-sm rounded-lg border-2 shadow-[4px_4px_0px_0px_var(--shadow-primary)] hover:shadow-[6px_6px_0px_0px_var(--shadow-primary)] active:shadow-[2px_2px_0px_0px_var(--shadow-primary)] transition-all duration-200;
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            border-color: var(--border-primary);
+        }
+
+        .theme-toggle {
+            @apply p-2 rounded-lg border-2 transition-all duration-200 hover:scale-105;
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            border-color: var(--border-primary);
+            box-shadow: 2px 2px 0px 0px var(--shadow-primary);
+        }
+
+        .theme-toggle:hover {
+            box-shadow: 3px 3px 0px 0px var(--shadow-primary);
         }
     }
 
     @layer utilities {
         .border-3 {
             border-width: 3px;
+        }
+
+        .bg-theme-primary {
+            background-color: var(--bg-primary);
+        }
+
+        .bg-theme-secondary {
+            background-color: var(--bg-secondary);
+        }
+
+        .bg-theme-tertiary {
+            background-color: var(--bg-tertiary);
+        }
+
+        .text-theme-primary {
+            color: var(--text-primary);
+        }
+
+        .text-theme-secondary {
+            color: var(--text-secondary);
+        }
+
+        .text-theme-muted {
+            color: var(--text-muted);
+        }
+
+        .border-theme-primary {
+            border-color: var(--border-primary);
+        }
+
+        .border-theme-secondary {
+            border-color: var(--border-secondary);
         }
     }
     </style>
@@ -66,7 +161,17 @@
     <script type="text/babel" src="utils/courseContent.js"></script>
     <script type="text/babel" src="utils/questionPapersData.js"></script>
     <script type="text/babel" src="app.js"></script>
-    <footer class="w-full bg-white border-t border-gray-300 text-center text-xs text-gray-400 py-2">
+    
+    <!-- Theme initialization script -->
+    <script>
+      // Initialize theme on page load
+      document.addEventListener('DOMContentLoaded', function() {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      });
+    </script>
+    
+    <footer class="w-full border-t text-center text-xs py-2 bg-theme-secondary border-theme-secondary text-theme-muted">
       <span>
         Non-profit, non-revenue educational project to help students learn and share notes. No money is generated. For educational use only. Not affiliated with APJ Abdul Kalam Technological University. Copyright concerns? <a href="mailto:24mp2275@rit.ac.in" class="underline">Contact us</a>.
       </span>
