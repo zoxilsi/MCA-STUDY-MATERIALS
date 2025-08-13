@@ -40,9 +40,9 @@
     }
 
     [data-theme="dark"] {
-        --bg-primary: #0f0f23;
-        --bg-secondary: #1a1a2e;
-        --bg-tertiary: #16213e;
+        --bg-primary: #000000;
+        --bg-secondary: #0a0a0a;
+        --bg-tertiary: #1a1a1a;
         --text-primary: #ffffff;
         --text-secondary: #e2e8f0;
         --text-muted: #94a3b8;
@@ -87,15 +87,15 @@
     }
 
     [data-theme="dark"] body {
-        background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+        background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #1a1a1a 100%);
     }
 
     [data-theme="dark"] .bg-theme-secondary {
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
     }
 
     [data-theme="dark"] .bg-theme-tertiary {
-        background: linear-gradient(135deg, #16213e 0%, #1e3a8a 100%);
+        background: linear-gradient(135deg, #1a1a1a 0%, #262626 100%);
     }
 
     [data-theme="dark"] input,
@@ -111,7 +111,7 @@
     [data-theme="dark"] textarea:focus {
         border-color: #3b82f6;
         box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
-        background: linear-gradient(135deg, #16213e 0%, #1e3a8a 100%);
+        background: linear-gradient(135deg, var(--bg-tertiary) 0%, #262626 100%);
     }
 
     [data-theme="dark"] .border-theme-primary {
@@ -134,7 +134,7 @@
     }
 
     [data-theme="dark"] .bg-gradient-to-r {
-        background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+        background: linear-gradient(90deg, #3b82f6, #60a5fa);
     }
 
     [data-theme="dark"] .bg-gradient-to-r.from-red-500.to-orange-500 {
@@ -146,11 +146,11 @@
     }
 
     [data-theme="dark"] .bg-gradient-to-r.from-blue-500.to-purple-500 {
-        background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+        background: linear-gradient(90deg, #3b82f6, #60a5fa);
     }
 
     [data-theme="dark"] .theme-toggle {
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
         border-color: #3b82f6;
         color: #3b82f6;
         position: relative;
@@ -173,10 +173,10 @@
     }
 
     [data-theme="dark"] .theme-toggle:hover {
-        border-color: #8b5cf6;
-        color: #8b5cf6;
+        border-color: #60a5fa;
+        color: #60a5fa;
         transform: scale(1.05);
-        background: linear-gradient(135deg, #16213e 0%, #1e3a8a 100%);
+        background: linear-gradient(135deg, #1a1a1a 0%, #262626 100%);
     }
 
     [data-theme="dark"] .semester-button {
@@ -191,7 +191,7 @@
     }
 
     [data-theme="dark"] .semester-button.selected {
-        background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+        background: linear-gradient(90deg, #3b82f6, #60a5fa);
         color: white;
         border-color: #3b82f6;
     }
@@ -205,7 +205,7 @@
     [data-theme="dark"] .search-input:focus {
         border-color: #3b82f6;
         box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
-        background: linear-gradient(135deg, var(--bg-tertiary) 0%, #1e3a8a 100%);
+        background: linear-gradient(135deg, var(--bg-tertiary) 0%, #262626 100%);
     }
 
     [data-theme="dark"] .card-hover {
@@ -222,7 +222,7 @@
     }
 
     [data-theme="dark"] .text-accent-secondary {
-        color: #8b5cf6;
+        color: #60a5fa;
     }
 
     [data-theme="dark"] .border-accent {
