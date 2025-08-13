@@ -17,8 +17,8 @@ class ErrorBoundary extends React.Component {
       return (
         <div className="min-h-screen flex items-center justify-center bg-gray-50">
           <div className="text-center">
-            <h1 className="text-2xl font-bold text-gray-900 mb-4">Something went wrong</h1>
-            <p className="text-gray-600 mb-4">We're sorry, but something unexpected happened.</p>
+                      <h1 className="text-2xl font-bold text-theme-primary mb-4">Something went wrong</h1>
+          <p className="text-theme-secondary mb-4">We're sorry, but something unexpected happened.</p>
             <button
               onClick={() => window.location.reload()}
               className="btn btn-black"

@@ -198,8 +198,115 @@
 
     [data-theme="dark"] .search-input {
         background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
-        border-color: var(--border-primary);
-        color: var(--text-primary);
+    }
+
+    /* Fix for light background colors in dark theme - ensures proper contrast */
+    [data-theme="dark"] .bg-blue-100 {
+        background-color: #1e3a8a !important;
+        color: #ffffff !important;
+    }
+
+    [data-theme="dark"] .bg-green-100 {
+        background-color: #065f46 !important;
+        color: #ffffff !important;
+    }
+
+    [data-theme="dark"] .bg-yellow-100 {
+        background-color: #92400e !important;
+        color: #ffffff !important;
+    }
+
+    [data-theme="dark"] .bg-red-100 {
+        background-color: #991b1b !important;
+        color: #ffffff !important;
+    }
+
+    [data-theme="dark"] .bg-purple-100 {
+        background-color: #581c87 !important;
+        color: #ffffff !important;
+    }
+
+    [data-theme="dark"] .bg-pink-100 {
+        background-color: #831843 !important;
+        color: #ffffff !important;
+    }
+
+    [data-theme="dark"] .bg-indigo-100 {
+        background-color: #3730a3 !important;
+        color: #ffffff !important;
+    }
+
+    [data-theme="dark"] .bg-gray-100 {
+        background-color: #374151 !important;
+        color: #ffffff !important;
+    }
+
+    /* Ensure text visibility when using light backgrounds with text-theme-secondary in dark theme */
+    [data-theme="dark"] .bg-blue-100.text-theme-secondary,
+    [data-theme="dark"] .bg-green-100.text-theme-secondary,
+    [data-theme="dark"] .bg-yellow-100.text-theme-secondary,
+    [data-theme="dark"] .bg-red-100.text-theme-secondary,
+    [data-theme="dark"] .bg-purple-100.text-theme-secondary,
+    [data-theme="dark"] .bg-pink-100.text-theme-secondary,
+    [data-theme="dark"] .bg-indigo-100.text-theme-secondary,
+    [data-theme="dark"] .bg-gray-100.text-theme-secondary {
+        color: #ffffff !important;
+    }
+
+    /* Enhanced contrast utility classes for better visibility in both themes */
+    /* These classes automatically handle contrast for light background colors in both light and dark themes */
+    .contrast-badge {
+        @apply px-2 py-1 border-2 border-theme-primary rounded font-bold text-xs;
+    }
+
+    [data-theme="light"] .contrast-badge.bg-blue-100 {
+        background-color: #dbeafe;
+        color: #1e40af;
+    }
+
+    [data-theme="light"] .contrast-badge.bg-green-100 {
+        background-color: #dcfce7;
+        color: #166534;
+    }
+
+    [data-theme="dark"] .contrast-badge.bg-blue-100 {
+        background-color: #1e3a8a;
+        color: #ffffff;
+    }
+
+    [data-theme="dark"] .contrast-badge.bg-green-100 {
+        background-color: #065f46;
+        color: #ffffff;
+    }
+
+    [data-theme="light"] .contrast-badge.bg-yellow-100 {
+        background-color: #fef3c7;
+        color: #92400e;
+    }
+
+    [data-theme="dark"] .contrast-badge.bg-yellow-100 {
+        background-color: #92400e;
+        color: #ffffff;
+    }
+
+    [data-theme="light"] .contrast-badge.bg-red-100 {
+        background-color: #fee2e2;
+        color: #991b1b;
+    }
+
+    [data-theme="dark"] .contrast-badge.bg-red-100 {
+        background-color: #991b1b;
+        color: #ffffff;
+    }
+
+    [data-theme="light"] .contrast-badge.bg-purple-100 {
+        background-color: #f3e8ff;
+        color: #581c87;
+    }
+
+    [data-theme="dark"] .contrast-badge.bg-purple-100 {
+        background-color: #581c87;
+        color: #ffffff;
     }
 
     [data-theme="dark"] .search-input:focus {

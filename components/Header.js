@@ -87,7 +87,7 @@ function Header({
                     <div
                       className={`w-6 h-6 rounded-full border-2 border-theme-primary flex items-center justify-center text-xs font-black ${
                         selectedSemester === sem
-                          ? "bg-white text-blue-500"
+                          ? "bg-theme-secondary text-blue-500"
                           : "bg-theme-tertiary"
                       }`}
                     >
@@ -111,7 +111,7 @@ function Header({
             >
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xs opacity-75">QP</span>
-                <div className="w-6 h-6 rounded-full border-2 border-white flex items-center justify-center text-xs font-black bg-white text-red-500">
+                <div className="w-6 h-6 rounded-full border-2 border-theme-secondary flex items-center justify-center text-xs font-black bg-theme-secondary text-red-500">
                   <div className="icon-file-text text-xs"></div>
                 </div>
               </div>

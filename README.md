@@ -84,6 +84,7 @@ MCA-STUDY-MATERIALS/
 - **🔧 Babel**: JSX transformation in browser
 - **📱 Tailwind CSS**: Utility-first responsive design
 - **🎯 Lucide Icons**: Beautiful, consistent iconography
+- **🌙 Dark Theme**: Full dark mode support with proper contrast
 
 ### Development Tools
 - **🐍 Python**: Automation scripts and utilities
@@ -98,6 +99,12 @@ MCA-STUDY-MATERIALS/
 ---
 
 ## 🚀 Key Features
+
+### 🎨 Theme System
+- **Light & Dark Themes**: Seamless theme switching with localStorage persistence
+- **Proper Contrast**: All UI elements maintain excellent readability in both themes
+- **Automatic Adaptation**: Background colors and text automatically adjust for optimal visibility
+- **Accessibility Focused**: WCAG compliant color combinations for better user experience
 
 ### 📚 Academic Features
 - **� Comprehensive Notes**: Complete study materials for all MCA semesters
