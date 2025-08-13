@@ -10,7 +10,7 @@ function Header({
   try {
     return (
       <header
-        className="border-b-3 border-theme-primary p-4 bg-theme-secondary"
+        className="border-b-3 border-theme-primary p-4 bg-theme-primary"
         data-name="header"
         data-file="components/Header.js"
       >

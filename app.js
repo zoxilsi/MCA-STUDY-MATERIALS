@@ -168,7 +168,7 @@ function App() {
     }
     
     return (
-      <div className="min-h-screen bg-theme-secondary" data-name="app" data-file="app.js">
+      <div className="min-h-screen bg-theme-primary" data-name="app" data-file="app.js">
         <Header 
           searchTerm={searchTerm}
           onSearchChange={setSearchTerm}
@@ -179,7 +179,7 @@ function App() {
           onThemeToggle={toggleTheme}
         />
         
-        <main className="max-w-6xl mx-auto p-6">
+        <main className="max-w-6xl mx-auto p-6 bg-theme-primary">
           <ProgressStats 
             courses={allCourses}
             selectedSemester={selectedSemester}
