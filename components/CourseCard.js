@@ -1,3 +1,4 @@
+import Tooltip from "./Tooltip";
 function CourseCard({ course, onViewDetails }) {
   try {
     // Function to check if course has notes available
@@ -106,8 +107,10 @@ function CourseCard({ course, onViewDetails }) {
           {course.hours && (
             <div className="flex justify-between text-sm">
               <span className="text-gray-600 font-bold">Hours/Week:</span>
-              <span className="font-black">
-                L:{course.hours.lecture} T:{course.hours.tutorial} P:{course.hours.practical}
+              <span className="font-black space-x-1">
+                <Tooltip text="Lecture Hours">L:{course.hours.lecture}</Tooltip>
+                <Tooltip text="Tutorial Hours"> T:{course.hours.tutorial}</Tooltip>
+                <Tooltip text="Practical Hours"> P:{course.hours.practical}</Tooltip>
               </span>
             </div>
           )}
@@ -115,7 +118,10 @@ function CourseCard({ course, onViewDetails }) {
           {course.marks && (
             <div className="flex justify-between text-sm">
               <span className="text-gray-600 font-bold">Marks:</span>
-              <span className="font-black">IA:{course.marks.ia} ESE:{course.marks.ese}</span>
+              <span className="font-black"> 
+                <Tooltip text="Internal Assessment">IA:{course.marks.ia}</Tooltip> 
+                <Tooltip text="End Semester Exam">ESE:{course.marks.ese}</Tooltip>
+                </span>
             </div>
           )}
         </div>
