@@ -40,7 +40,6 @@
             integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        <!-- Predefined Tailwind CSS, use it as needed, or update base on your -->
         <style type="text/tailwindcss">
     @layer base {
         body {
@@ -65,6 +64,36 @@
     @layer utilities {
         .border-3 {
             border-width: 3px;
+        }
+
+        /* --- TOOLTIP STYLES ADDED HERE --- */
+        [data-tooltip] {
+          position: relative;
+          cursor: help;
+        }
+        [data-tooltip]::after {
+          content: attr(data-tooltip);
+          position: absolute;
+          left: 50%;
+          bottom: 100%;
+          transform: translateX(-50%);
+          background-color: #1f2937;
+          color: #ffffff;
+          padding: 6px 12px;
+          border-radius: 6px;
+          font-size: 0.8rem;
+          font-weight: 500;
+          white-space: nowrap;
+          z-index: 10;
+          margin-bottom: 8px;
+          opacity: 0;
+          visibility: hidden;
+          pointer-events: none;
+          transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+        }
+        [data-tooltip]:hover::after {
+          opacity: 1;
+          visibility: visible;
         }
     }
     </style>
