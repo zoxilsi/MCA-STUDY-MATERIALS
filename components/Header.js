@@ -135,26 +135,34 @@ function Header({
 
             {/* RIT Internal Exam Question Papers Tab */}
             <button
-              className="relative p-4 rounded-xl border-3 border-black font-black text-sm bg-gray-300 dark:bg-gray-700 text-gray-600 dark:text-gray-400 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] cursor-not-allowed opacity-75"
-              disabled
-            >
+              className="relative p-4 rounded-xl border-3 border-black font-black text-sm bg-gradient-to-br from-pink-200 via-purple-300 to-indigo-300dark:from-purple-700 dark:via-indigo-800 dark:to-black
+                        text-gray-900 dark:text-gray-100 shadow-[5px_5px_0px_rgba(0,0,0,0.9)] hover:shadow-[7px_7px_0px_rgba(0,0,0,0.9)] transition-transform duration-200 cursor-not-allowed opacity-95 backdrop-blur-md"
+              disabled>
+              {/* ✅ Coming Soon Badge (Top Right) */}
+              <div className="absolute -top-4 -right-2 z-9 animate-pulse">
+                <span
+                  className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-white px-3 py-1 rounded-full font-extrabold text-xs tracking-wide
+                             border-2 border-black shadow-[2px_2px_0px_rgba(0,0,0,0.9)] flex items-center gap-1">
+                  🚀 Coming Soon
+                </span>
+              </div>
+
+              {/* Header Row */}
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs opacity-75">RIT</span>
-                <div className="w-6 h-6 rounded-full border-2 border-gray-400 flex items-center justify-center text-xs font-black bg-gray-200 dark:bg-gray-600 text-gray-500 dark:text-gray-400">
-                  <div className="icon-clock text-xs"></div>
+                <span className="text-xs opacity-75 tracking-wider">RIT</span>
+                <div
+                  className="w-7 h-7 rounded-full border-2 border-black flex items-center justify-center text-xs font-black bg-gradient-to-r from-yellow-300 to-orange-500 text-black shadow-inner">
+                  <div className="icon-clock text-sm"></div>
                 </div>
               </div>
+
+              {/* Title */}
               <div className="text-left">
-                <div className="text-base mb-1">
-                  <span className="bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 px-2 py-1 rounded font-extrabold border-2 border-gray-300 dark:border-gray-500 shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)]">
-                    Internal Exam
-                  </span>
+                <div className="text-base font-extrabold tracking-wide">
+                  Internal Exam
                 </div>
-                <div className="text-xs opacity-75">
-                  <span className="bg-red-500 text-white px-1 py-0.5 rounded font-bold text-xs border border-red-600">
-                    Coming Soon
-                  </span>
-                  <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">RIT Kottayam</div>
+                <div className="text-xs opacity-70 mt-1 italic">
+                  RIT Kottayam
                 </div>
               </div>
             </button>
