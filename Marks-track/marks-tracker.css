@@ -1,0 +1,149 @@
+/*
+ * File: marker-tracker/marks-tracker.css
+ * Description: Light and Dark theme styles for the Marks Tracker feature.
+ */
+
+/* --- Dark Theme Color Palette (Default) --- */
+:root {
+    --bg-color: #111827; /* Dark Charcoal */
+    --card-bg: #1F2937; /* Dark Gray */
+    --primary-text: #F9FAFB; /* Light Gray / White */
+    --secondary-text: #9CA3AF; /* Medium Gray */
+    --border-color: #374151; /* Lighter Gray for borders */
+    --accent-purple: #8B5CF6;
+    --input-bg: #374151;
+}
+
+/* --- Light Mode Theme --- */
+/* These variables are applied when the body has the 'light-mode' class */
+body.light-mode {
+    --bg-color: #f8fafc;    /* Light Gray */
+    --card-bg: #ffffff;    /* White */
+    --primary-text: #1F2937; /* Dark Gray */
+    --secondary-text: #4B5563; /* Medium Gray */
+    --border-color: #e5e7eb; /* Lighter Gray */
+    --accent-purple: #6D28D9;
+    --input-bg: #ffffff;
+}
+
+/* --- Base Styling --- */
+body {
+    background-color: var(--bg-color);
+    color: var(--primary-text);
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* --- Main Controls & Headers --- */
+header h1, header p {
+    color: var(--primary-text);
+}
+
+.add-course-button {
+    background-color: var(--accent-purple);
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 14px 0 rgba(139, 92, 246, 0.39);
+    transition: all 0.2s ease-in-out;
+    border: none;
+    cursor: pointer;
+}
+
+.add-course-button:hover {
+    background-color: #7C3AED;
+    transform: translateY(-2px);
+}
+
+/* --- Course Card Styling (Overrides for Tailwind) --- */
+.bg-white {
+    background-color: var(--card-bg) !important;
+    transition: background-color 0.3s;
+}
+.bg-gray-50 {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+body.light-mode .bg-gray-50 {
+     background-color: #f9fafb !important;
+}
+
+.border-b {
+    border-color: var(--border-color) !important;
+}
+.text-gray-800, .text-gray-900 {
+    color: var(--primary-text) !important;
+}
+.text-gray-600 {
+    color: var(--secondary-text) !important;
+}
+.text-gray-400 {
+    color: #6B7280;
+}
+.shadow-lg {
+     box-shadow: 0 0 30px rgba(0,0,0,0.3);
+}
+body.light-mode .shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+}
+
+
+/* --- Inputs and Tables --- */
+input, select {
+    background-color: var(--input-bg) !important;
+    border-color: var(--border-color) !important;
+    color: var(--primary-text) !important;
+}
+input::placeholder {
+    color: var(--secondary-text);
+}
+table, tr, td {
+    color: var(--primary-text);
+}
+
+/* --- Results Section --- */
+.bg-blue-50 {
+    background-color: rgba(59, 130, 246, 0.1) !important;
+}
+body.light-mode .bg-blue-50 {
+    background-color: #eff6ff !important;
+}
+
+.text-blue-800 {
+    color: #93C5FD !important; /* Light blue for dark theme */
+}
+body.light-mode .text-blue-800 {
+    color: #1e40af !important;
+}
+
+.text-blue-600 {
+    color: #60A5FA !important;
+}
+body.light-mode .text-blue-600 {
+    color: #2563eb !important;
+}
+
+.bg-white.shadow-inner {
+    background-color: rgba(0,0,0,0.2) !important;
+}
+body.light-mode .bg-white.shadow-inner {
+    background-color: #f9fafb !important;
+}
+
+/* --- Theme Toggle Button --- */
+#theme-toggle-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--primary-text);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
