@@ -1,3 +1,5 @@
+
+
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
@@ -201,7 +203,6 @@ function App() {
           showAdvancedFilters={showAdvancedFilters}
           onToggleAdvancedFilters={handleToggleAdvancedFilters}
         />
-        
         <main className="max-w-6xl mx-auto p-6">
           {/* Advanced Search Filters */}
           <AdvancedSearchFilters 
@@ -214,7 +215,8 @@ function App() {
             courses={allCourses}
             selectedSemester={selectedSemester}
           />
-          
+          {/* Result Predictor widget just above Semester I */}
+          {/* ...existing code... */}
           {searchTerm && (
             <div className="mb-6">
               <h2 className="text-xl font-bold mb-2 text-black dark:text-white">
@@ -225,14 +227,29 @@ function App() {
               </p>
             </div>
           )}
-          
+          {/* Result Predictor widget appears here when not searching */}
           {!searchTerm && (
-            <div className="mb-6">
-              <h2 className="text-2xl font-black mb-2 text-black dark:text-white">{selectedSemester}</h2>
-              <p className="text-gray-600 dark:text-gray-300">
-                Explore {filteredCourses.length} courses organized by categories
-              </p>
-            </div>
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 mt-8">
+                <a href="pages/result-predictor.html" className="block p-6 rounded-xl border-2 border-blue-600 bg-gradient-to-r from-blue-400 to-blue-600 shadow-lg hover:scale-105 transition-transform duration-200">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-blue-700 rounded-lg flex items-center justify-center">
+                      <i className="fa-solid fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-white">Result Predictor</h3>
+                      <p className="text-sm text-blue-100">Predict your Endsem score</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div className="mb-6">
+                <h2 className="text-2xl font-black mb-2 text-black dark:text-white">{selectedSemester}</h2>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Explore {filteredCourses.length} courses organized by categories
+                </p>
+              </div>
+            </>
           )}
           
           {searchTerm ? (

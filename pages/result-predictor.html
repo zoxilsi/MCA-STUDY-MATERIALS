@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Result Predictor | MCA Notes</title>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/jpeg" href="../assets/fav-study.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+      tailwind.config = { darkMode: 'class' };
+    </script>
+  </head>
+  <body class="bg-[#f0f0f0] dark:bg-gray-900 min-h-screen">
+    <div class="max-w-4xl mx-auto pt-8 px-4">
+  <a href="../index.html" class="inline-block mb-8 px-5 py-2 rounded-lg border-2 border-black bg-white text-black font-bold text-base shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all">
+        <i class="fa fa-arrow-left mr-2"></i> Go to Courses
+      </a>
+      <div id="result-root"></div>
+    </div>
+    <script type="text/babel" src="../components/ResultThemeContext.js"></script>
+    <script type="text/babel" src="../components/ResultPredictor.js"></script>
+    <script type="text/babel">
+      ReactDOM.createRoot(document.getElementById('result-root')).render(
+        React.createElement(window.ThemeProvider, null, React.createElement(window.ResultPredictor))
+      );
+    </script>
+  </body>
+</html>
