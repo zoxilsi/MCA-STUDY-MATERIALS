@@ -1,0 +1,21 @@
+{
+  "name": "MCA Curriculum Tracker",
+  "short_name": "MCA Notes",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f0f0f0",
+  "theme_color": "#4A90E2",
+  "description": "Offline-accessible MCA notes and question papers",
+  "icons": [
+    {
+      "src": "/assets/fav-study-rs1.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/fav-study-rs2.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
