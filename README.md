@@ -4,6 +4,13 @@
 <img width="300" height="168" alt="images" src="https://github.com/user-attachments/assets/f8cd59b8-8d0d-4178-9787-9de165724d12" />
 
 
+## GitAds Sponsored
+[![Sponsored by GitAds](https://gitads.dev/v1/ad-serve?source=zoxilsi/mca-study-materials@github)](https://gitads.dev/v1/ad-track?source=zoxilsi/mca-study-materials@github)
+
+
+
+
+
 # 📚 MCA STUDY MATERIALS
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -679,9 +686,14 @@ We're incredibly grateful to all the amazing people who have contributed to maki
 <a href="https://github.com/zoxilsi">
   <img src="https://avatars.githubusercontent.com/u/176703579?v=4" width="80" alt="@zoxilsi" title="Project Founder & Lead Developer"/>
 </a>
-<a href="https://github.com/24mp2301">
-  <img src="https://avatars.githubusercontent.com/u/182845171?v=4" width="80" alt="@24mp2301" title="Core Contributor"/>
+
+### ✨ Contributors Wall
+
+<a href="https://github.com/zoxilsi/MCA-STUDY-MATERIALS/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=zoxilsi/MCA-STUDY-MATERIALS" />
 </a>
+
+
 
 ### 🎯 How to Join Our Community
 

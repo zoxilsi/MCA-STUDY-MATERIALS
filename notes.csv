@@ -43,8 +43,31 @@ semester,course_code,subject,module,part,link
 1,20MCA103,Digital Fundamentals & Computer Architecture,5,5,https://drive.google.com/file/d/1WEpLm0n4NS5N-RcXy6GU6iu8GQfwmk9V/view?usp=drive_link
 
 
+1,20MCA131,Programming Lab,1,python,https://drive.google.com/file/d/1xYNbAFwheESwjtMx84u5KaPIjO1Eac9A/view?usp=drive_link
+1,20MCA131,Programming Lab,1,tuples_dictionary,https://drive.google.com/file/d/1cTlqwN1Kw9fFHDSuIvUZ3_3bY-UFylQd/view?usp=drive_link
+1,20MCA131,Programming Lab,1,oops_intro,https://drive.google.com/file/d/1ssR5CCVWX2VslkubHE7qJzdIZHUyGsuD/view?usp=drive_link
+1,20MCA131,Programming Lab,1,class_part_1,https://drive.google.com/file/d/1UJhXTiZS9g13-uVzUiwc7Nlfr6mCtmI6/view?usp=drive_link
+1,20MCA131,Programming Lab,1,class_part_2,https://drive.google.com/file/d/16DsmJlEMQFzGzWb8QkLaDPJ63O4V8xX5/view?usp=drive_link
+1,20MCA131,Programming Lab,1,polymorphism,https://drive.google.com/file/d/1d1mNjSC9vt-5ufo3qNABInNnMvVHkJCT/view?usp=drive_link
+1,20MCA131,Programming Lab,1,abstract_class,https://drive.google.com/file/d/1502AadJB_t1HJmnb0JZTlJ3A-RyGvK0X/view?usp=drive_link
+1,20MCA131,Programming Lab,1,file_handling,https://drive.google.com/file/d/1yfe2C4x4KbBr6aN3ULd62ZnD9tsMRoTa/view?usp=drive_link
+1,20MCA131,Programming Lab,1,regular_expression,https://drive.google.com/file/d/1Jtm3Fl4UDkt9UJGYak2TGXZe9dGBhyz_/view?usp=drive_link
+1,20MCA131,Programming Lab,1,csv,https://drive.google.com/file/d/1Agog0G6UphqWLlxcqzDhm6RcArmOmEAT/view?usp=drive_link
 
-
+1,20MCA133,Web Programming Lab,1,html_introduction,https://drive.google.com/file/d/1wAlQC_SGj6nfCb6SVTOg9fhT00RdkHlv/view?usp=drive_link
+1,20MCA133,Web Programming Lab,2,html_hyperlink,https://drive.google.com/file/d/1qS_ZmCGpUBkpn4z3xB-VFhaIYShbrg4M/view?usp=drive_link
+1,20MCA133,Web Programming Lab,3,html_part_3,https://drive.google.com/file/d/1LiN9yQHuo8QA2pGcLGmUAjMTTwWOtqWH/view?usp=drive_link
+1,20MCA133,Web Programming Lab,4,font_bg,https://drive.google.com/file/d/16T9jerIfXaZ8aalMcgJC4_IstNIYZTIg/view?usp=drive_link
+1,20MCA133,Web Programming Lab,5,html_forms,https://drive.google.com/file/d/1P2qeERTX8wGzRdDOUui_VAXrngh1bPMK/view?usp=drive_link
+1,20MCA133,Web Programming Lab,6,iframes,https://drive.google.com/file/d/15mMHZWFzw5tnhQil3yvBluZGwnTID-zg/view?usp=drive_link
+1,20MCA133,Web Programming Lab,7,css_intro,https://drive.google.com/file/d/1ak1rvNMlOF63mG1r_ZlpEeADwChC-3x6/view?usp=drive_link
+1,20MCA133,Web Programming Lab,8,javascript_intro,https://drive.google.com/file/d/1wtUxI9fNBgl-Fb65YL1INcgW9JX9VOp_/view?usp=drive_link
+1,20MCA133,Web Programming Lab,9,javascript_objects,https://drive.google.com/file/d/1PHLMlizgIyWFxYMwCm8-iVyGb8zOqF1-/view?usp=drive_link
+1,20MCA133,Web Programming Lab,10,javascript_validation,https://drive.google.com/file/d/1uj33PMjtTUL-upiCQSZZkgsi1A0Ac0MA/view?usp=drive_link
+1,20MCA133,Web Programming Lab,11,php_basics,https://drive.google.com/file/d/1L0nJ2TWS49hL0Ee9N-hSCSCn6sSd-HsB/view?usp=drive_link
+1,20MCA133,Web Programming Lab,12,php_operators,https://drive.google.com/file/d/1JH_3mndp5y2Cii87JSthW7HQ1TqT5MxW/view?usp=drive_link
+1,20MCA133,Web Programming Lab,13,array,https://drive.google.com/file/d/1cif-lW1lF5betGA_ADX8sSFxyC9gEiNq/view?usp=drive_link
+1,20MCA133,Web Programming Lab,14,mysql,https://drive.google.com/file/d/1LA9iXIzbCPNi8UlK9MCnoQTZ8D40nwF2/view?usp=drive_link
 
 
 
@@ -69,7 +92,7 @@ semester,course_code,subject,module,part,link
 2,20MCA104,Advanced Computer Networks,5,1,https://drive.google.com/file/d/1rx_dftXXX1Tu6CYndqzIfwnrZfHhhIxC/view?usp=drive_link
 
 
-semester,course_code,subject,module,part,link
+
 2,20MCA188,Artificial Intelligence,1,1,https://drive.google.com/file/d/1D00BZ752JeYD21ENUbLGWRjGR6D0A2IV/view?usp=drive_link
 2,20MCA188,Artificial Intelligence,2,2,https://drive.google.com/file/d/1sXBo4vPS6Ql5Do7BktXdhi2PsVM2vMWo/view?usp=drive_link
 2,20MCA188,Artificial Intelligence,3,1,https://drive.google.com/file/d/10zOt6BBD3N5ptzvuRf7ritLge1jTRgmc/view?usp=drive_link

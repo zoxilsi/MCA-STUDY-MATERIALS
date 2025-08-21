@@ -74,9 +74,98 @@ function LabQuestions({ course }) {
       gitlabRepo: 'https://gitlab.com/zoxilsi/computer-network-and-system-administrtion'
     }
   };
+  
+ ///ADDED Lab Notes for Semester 1 (Programming Lab , Web Programming Lab)
+  if (course && course.code ==='20MCA131') {
+  const modules = [
+    {
+      name: 'Programming Lab',
+     files: [
+        { name: 'Python.pdf', path: 'https://drive.google.com/uc?export=download&id=1xYNbAFwheESwjtMx84u5KaPIjO1Eac9A' },
+        { name: 'Tuples and Dictionary.pdf', path: 'https://drive.google.com/uc?export=download&id=1cTlqwN1Kw9fFHDSuIvUZ3_3bY-UFylQd' },
+        { name: 'OOPs Intro.pdf', path: 'https://drive.google.com/uc?export=download&id=1ssR5CCVWX2VslkubHE7qJzdIZHUyGsuD' },
+        { name: 'Class Part 1.pdf', path: 'https://drive.google.com/uc?export=download&id=1UJhXTiZS9g13-uVzUiwc7Nlfr6mCtmI6' },
+        { name: 'Class Part 2.pdf', path: 'https://drive.google.com/uc?export=download&id=16DsmJlEMQFzGzWb8QkLaDPJ63O4V8xX5' },
+        { name: 'Polymorphism.pdf', path: 'https://drive.google.com/uc?export=download&id=1d1mNjSC9vt-5ufo3qNABInNnMvVHkJCT' },
+        { name: 'Abstract Class.pdf', path: 'https://drive.google.com/uc?export=download&id=1502AadJB_t1HJmnb0JZTlJ3A-RyGvK0X' },
+        { name: 'File Handling.pdf', path: 'https://drive.google.com/uc?export=download&id=1yfe2C4x4KbBr6aN3ULd62ZnD9tsMRoTa' },
+        { name: 'Regular Expression.pdf', path: 'https://drive.google.com/uc?export=download&id=1Jtm3Fl4UDkt9UJGYak2TGXZe9dGBhyz_' },
+        { name: 'CSV.pdf', path: 'https://drive.google.com/uc?export=download&id=1Agog0G6UphqWLlxcqzDhm6RcArmOmEAT' },
+      ],
+    },
+  ];
+  return (
+      <div className="space-y-8">
+        {modules.map((module) => (
+          <div key={module.name}>
+            <h3 className="font-bold text-lg mb-2 dark:text-white">{module.name}</h3>
+            <div className="space-y-2">
+              {module.files.map((file) => (
+                <a
+                  key={file.name}
+                  href={file.path}
+                  download
+                  className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 border-2 border-black rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,0.9)] transition-all text-blue-700 dark:text-blue-400 font-semibold"
+                >
+                  <span className="icon-download text-lg"></span>
+                  <span>{file.name}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+  if (course && course.code === '20MCA133') {
+  const modules = [
+    {
+      name: 'Web Programming Lab',
+      files: [
+        { name: 'HTML Introduction', path: 'https://drive.google.com/uc?export=download&id=1wAlQC_SGj6nfCb6SVTOg9fhT00RdkHlv' },
+        { name: 'HTML Hyperlink', path: 'https://drive.google.com/uc?export=download&id=1qS_ZmCGpUBkpn4z3xB-VFhaIYShbrg4M' },
+        { name: 'HTML Part 3', path: 'https://drive.google.com/uc?export=download&id=1LiN9yQHuo8QA2pGcLGmUAjMTTwWOtqWH' },
+        { name: 'Font & Background', path: 'https://drive.google.com/uc?export=download&id=16T9jerIfXaZ8aalMcgJC4_IstNIYZTIg' },
+        { name: 'HTML Forms', path: 'https://drive.google.com/uc?export=download&id=1P2qeERTX8wGzRdDOUui_VAXrngh1bPMK' },
+        { name: 'Iframes', path: 'https://drive.google.com/uc?export=download&id=15mMHZWFzw5tnhQil3yvBluZGwnTID-zg' },
+        { name: 'CSS Introduction', path: 'https://drive.google.com/uc?export=download&id=1ak1rvNMlOF63mG1r_ZlpEeADwChC-3x6' },
+        { name: 'JavaScript Introduction', path: 'https://drive.google.com/uc?export=download&id=1wtUxI9fNBgl-Fb65YL1INcgW9JX9VOp_' },
+        { name: 'JavaScript Objects', path: 'https://drive.google.com/uc?export=download&id=1PHLMlizgIyWFxYMwCm8-iVyGb8zOqF1-' },
+        { name: 'JavaScript Validation', path: 'https://drive.google.com/uc?export=download&id=1uj33PMjtTUL-upiCQSZZkgsi1A0Ac0MA' },
+        { name: 'PHP Basics', path: 'https://drive.google.com/uc?export=download&id=1L0nJ2TWS49hL0Ee9N-hSCSCn6sSd-HsB' },
+        { name: 'PHP Operators', path: 'https://drive.google.com/uc?export=download&id=1JH_3mndp5y2Cii87JSthW7HQ1TqT5MxW' },
+        { name: 'Array', path: 'https://drive.google.com/uc?export=download&id=1cif-lW1lF5betGA_ADX8sSFxyC9gEiNq' },
+        { name: 'MySQL', path: 'https://drive.google.com/uc?export=download&id=1LA9iXIzbCPNi8UlK9MCnoQTZ8D40nwF2' },
+      ],
+    },
+  ];
 
+  return (
+    <div className="space-y-8">
+      {modules.map((module) => (
+        <div key={module.name}>
+          <h3 className="font-bold text-lg mb-2 dark:text-white">{module.name}</h3>
+          <div className="space-y-2">
+            {module.files.map((file) => (
+              <a
+                key={file.name}
+                href={file.path}
+                download
+                className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 border-2 border-black rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,0.9)] transition-all text-blue-700 dark:text-blue-400 font-semibold"
+              >
+                <span className="icon-download text-lg"></span>
+                <span>{file.name}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+///
   // Check if it's a lab course
-  if (labCourses[course.code]) {
+  if (labCourses[course.code] ) { ////
     const lab = labCourses[course.code];
     return (
       <div className={`min-h-screen ${lab.bgColor} ${lab.darkBgColor} py-16`}>

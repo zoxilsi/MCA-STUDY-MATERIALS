@@ -64,6 +64,68 @@ export const filesData = {
           "5": "https://drive.google.com/uc?export=download&id=1WEpLm0n4NS5N-RcXy6GU6iu8GQfwmk9V"
         }
       }
+    },
+    "20MCA131": {
+      "Programming Lab": {
+        "1": {
+          "python": "https://drive.google.com/uc?export=download&id=1xYNbAFwheESwjtMx84u5KaPIjO1Eac9A",
+          "tuples_dictionary": "https://drive.google.com/uc?export=download&id=1cTlqwN1Kw9fFHDSuIvUZ3_3bY-UFylQd",
+          "oops_intro": "https://drive.google.com/uc?export=download&id=1ssR5CCVWX2VslkubHE7qJzdIZHUyGsuD",
+          "class_part_1": "https://drive.google.com/uc?export=download&id=1UJhXTiZS9g13-uVzUiwc7Nlfr6mCtmI6",
+          "class_part_2": "https://drive.google.com/uc?export=download&id=16DsmJlEMQFzGzWb8QkLaDPJ63O4V8xX5",
+          "polymorphism": "https://drive.google.com/uc?export=download&id=1d1mNjSC9vt-5ufo3qNABInNnMvVHkJCT",
+          "abstract_class": "https://drive.google.com/uc?export=download&id=1502AadJB_t1HJmnb0JZTlJ3A-RyGvK0X",
+          "file_handling": "https://drive.google.com/uc?export=download&id=1yfe2C4x4KbBr6aN3ULd62ZnD9tsMRoTa",
+          "regular_expression": "https://drive.google.com/uc?export=download&id=1Jtm3Fl4UDkt9UJGYak2TGXZe9dGBhyz_",
+          "csv": "https://drive.google.com/uc?export=download&id=1Agog0G6UphqWLlxcqzDhm6RcArmOmEAT"
+        }
+      }
+    },
+    "20MCA133": {
+      "Web Programming Lab": {
+        "1": {
+          "html_introduction": "https://drive.google.com/uc?export=download&id=1wAlQC_SGj6nfCb6SVTOg9fhT00RdkHlv"
+        },
+        "2": {
+          "html_hyperlink": "https://drive.google.com/uc?export=download&id=1qS_ZmCGpUBkpn4z3xB-VFhaIYShbrg4M"
+        },
+        "3": {
+          "html_part_3": "https://drive.google.com/uc?export=download&id=1LiN9yQHuo8QA2pGcLGmUAjMTTwWOtqWH"
+        },
+        "4": {
+          "font_bg": "https://drive.google.com/uc?export=download&id=16T9jerIfXaZ8aalMcgJC4_IstNIYZTIg"
+        },
+        "5": {
+          "html_forms": "https://drive.google.com/uc?export=download&id=1P2qeERTX8wGzRdDOUui_VAXrngh1bPMK"
+        },
+        "6": {
+          "iframes": "https://drive.google.com/uc?export=download&id=15mMHZWFzw5tnhQil3yvBluZGwnTID-zg"
+        },
+        "7": {
+          "css_intro": "https://drive.google.com/uc?export=download&id=1ak1rvNMlOF63mG1r_ZlpEeADwChC-3x6"
+        },
+        "8": {
+          "javascript_intro": "https://drive.google.com/uc?export=download&id=1wtUxI9fNBgl-Fb65YL1INcgW9JX9VOp_"
+        },
+        "9": {
+          "javascript_objects": "https://drive.google.com/uc?export=download&id=1PHLMlizgIyWFxYMwCm8-iVyGb8zOqF1-"
+        },
+        "10": {
+          "javascript_validation": "https://drive.google.com/uc?export=download&id=1uj33PMjtTUL-upiCQSZZkgsi1A0Ac0MA"
+        },
+        "11": {
+          "php_basics": "https://drive.google.com/uc?export=download&id=1L0nJ2TWS49hL0Ee9N-hSCSCn6sSd-HsB"
+        },
+        "12": {
+          "php_operators": "https://drive.google.com/uc?export=download&id=1JH_3mndp5y2Cii87JSthW7HQ1TqT5MxW"
+        },
+        "13": {
+          "array": "https://drive.google.com/uc?export=download&id=1cif-lW1lF5betGA_ADX8sSFxyC9gEiNq"
+        },
+        "14": {
+          "mysql": "https://drive.google.com/uc?export=download&id=1LA9iXIzbCPNi8UlK9MCnoQTZ8D40nwF2"
+        }
+      }
     }
   },
   "semester2": {

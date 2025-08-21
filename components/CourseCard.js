@@ -3,9 +3,13 @@ function CourseCard({ course, onViewDetails }) {
     // Function to check if course has notes available
     const hasNotes = (courseCode) => {
       const coursesWithNotes = [
+        // '20MCA101', // Mathematical Foundations for Computing
         '20MCA102', // Database Management
         '20MCA103', // Digital Fundamentals
         '20MCA104', // Computer Networks
+        '20MCA107', // Advanced Software Engineering
+        '20MCA131', // Programming Lab
+        '20MCA133', // Web Programming Lab
         '20MCA188'  // Artificial Intelligence
       ];
       return coursesWithNotes.includes(courseCode);

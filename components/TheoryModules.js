@@ -1,26 +1,26 @@
 function TheoryModules({ courseCode }) {
   // Special design for Laboratory courses
   const labCourses = {
-    '20MCA131': {
-      name: 'Programming Lab',
-      language: 'Python',
-      icon: '🐍',
-      color: 'from-green-400 to-blue-500',
-      bgColor: 'bg-green-50',
-      darkBgColor: 'dark:bg-gray-900',
-      borderColor: 'border-green-300',
-      description: 'Master Python programming with hands-on projects and real-world applications'
-    },
-    '20MCA133': {
-      name: 'Web Programming Lab',
-      language: 'HTML/CSS/JS',
-      icon: '🌐',
-      color: 'from-blue-400 to-purple-500',
-      bgColor: 'bg-blue-50',
-      darkBgColor: 'dark:bg-gray-900',
-      borderColor: 'border-blue-300',
-      description: 'Build stunning websites with modern web technologies and frameworks'
-    },
+    // '20MCA131': {
+    //   name: 'Programming Lab',
+    //   language: 'Python',
+    //   icon: '🐍',
+    //   color: 'from-green-400 to-blue-500',
+    //   bgColor: 'bg-green-50',
+    //   darkBgColor: 'dark:bg-gray-900',
+    //   borderColor: 'border-green-300',
+    //   description: 'Master Python programming with hands-on projects and real-world applications'
+    // },
+    // '20MCA133': {
+    //   name: 'Web Programming Lab',
+    //   language: 'HTML/CSS/JS',
+    //   icon: '🌐',
+    //   color: 'from-blue-400 to-purple-500',
+    //   bgColor: 'bg-blue-50',
+    //   darkBgColor: 'dark:bg-gray-900',
+    //   borderColor: 'border-blue-300',
+    //   description: 'Build stunning websites with modern web technologies and frameworks'
+    // },
     '20MCA135': {
       name: 'Data Structures Lab',
       language: 'C++',
@@ -183,7 +183,6 @@ function TheoryModules({ courseCode }) {
       </div>
     );
   }
-
   // Custom structure for 20MCA102
   if (courseCode === '20MCA102') {
     const modules = [
