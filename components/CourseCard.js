@@ -3,9 +3,13 @@ function CourseCard({ course, onViewDetails }) {
     // Function to check if course has notes available
     const hasNotes = (courseCode) => {
       const coursesWithNotes = [
+        // '20MCA101', // Mathematical Foundations for Computing
         '20MCA102', // Database Management
         '20MCA103', // Digital Fundamentals
         '20MCA104', // Computer Networks
+        '20MCA107', // Advanced Software Engineering
+        '20MCA131', // Programming Lab
+        '20MCA133', // Web Programming Lab
         '20MCA188'  // Artificial Intelligence
       ];
       return coursesWithNotes.includes(courseCode);
@@ -53,7 +57,7 @@ function CourseCard({ course, onViewDetails }) {
     
     return (
       <div 
-        className={`bg-white rounded-xl p-6 border-3 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,0.9)] transition-all duration-200 relative ${
+        className={`rounded-xl p-6 border-3 shadow-[6px_6px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,0.9)] transition-all duration-200 relative bg-white dark:bg-gray-800 border-black dark:border-gray-600 text-black dark:text-white ${
           isClickable ? 'cursor-pointer transform hover:scale-105' : ''
         }`}
         onClick={handleCardClick}
@@ -86,28 +90,28 @@ function CourseCard({ course, onViewDetails }) {
           </div>
           
           <div className="text-right">
-            <div className="text-xs font-bold text-gray-500 mb-1">{course.code}</div>
-            <div className="px-2 py-1 bg-gray-100 text-gray-700 text-xs font-bold rounded border border-black">
+            <div className="text-xs font-bold mb-1 text-gray-500 dark:text-gray-400">{course.code}</div>
+            <div className="px-2 py-1 text-xs font-bold rounded border bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border-black dark:border-gray-600">
               {course.credits} Credits
             </div>
           </div>
         </div>
         
-        <h3 className="text-lg font-black text-black mb-2 line-clamp-2">
+        <h3 className="text-lg font-black mb-2 line-clamp-2 text-black dark:text-white">
           {course.name}
         </h3>
         
         <div className="space-y-2 mb-4">
           <div className="flex justify-between text-sm">
-            <span className="text-gray-600 font-bold">Type:</span>
-            <span className="font-black">{course.type}</span>
+            <span className="font-bold text-gray-600 dark:text-gray-400">Type:</span>
+            <span className="font-black text-black dark:text-white">{course.type}</span>
           </div>
 
           {course.hours && (
             <div className="flex justify-between text-sm">
-              <span className="text-gray-600 font-bold">Hours/Week:</span>
-              <span className="font-black">
-                <span title="Lecture Hours">L:{course.hours.lecture}</span>{" "}
+              <span className="font-bold text-gray-600 dark:text-gray-400">Hours/Week:</span>
+              <span className="font-black text-black dark:text-white">
+              <span title="Lecture Hours">L:{course.hours.lecture}</span>{" "}
                 <span title="Tutorial Hours">T:{course.hours.tutorial}</span>{" "}
                 <span title="Practical Hours">P:{course.hours.practical}</span>
               </span>
@@ -116,24 +120,24 @@ function CourseCard({ course, onViewDetails }) {
           
           {course.marks && (
             <div className="flex justify-between text-sm">
-              <span className="text-gray-600 font-bold">Marks:</span>
-              <span className="font-black"> 
-                <span title="Internal Assessment">IA:{course.marks.ia}</span>{" "}
+              <span className="font-bold text-gray-600 dark:text-gray-400">Marks:</span>
+              <span className="font-black text-black dark:text-white">
+               <span title="Internal Assessment">IA:{course.marks.ia}</span>{" "}
                 <span title="End Semester Exam">ESE:{course.marks.ese}</span>
-                </span>
+              </span>
             </div>
           )}
         </div>
         
         <div className="flex items-center justify-between">
           {course.examSlot && (
-            <span className="text-xs text-gray-500">Exam Slot: {course.examSlot}</span>
+            <span className="text-xs text-gray-500 dark:text-gray-400">Exam Slot: {course.examSlot}</span>
           )}
           <div className="flex items-center gap-2">
             {isClickable && (
-              <span className="text-xs text-blue-600 font-bold">Click to view →</span>
+              <span className="text-xs font-bold text-blue-600 dark:text-blue-400">Click to view →</span>
             )}
-            <span className={`px-2 py-1 text-xs font-bold rounded border border-black ${getTypeColor(course.type)} text-white`}>
+            <span className={`px-2 py-1 text-xs font-bold rounded border border-black dark:border-gray-600 ${getTypeColor(course.type)} text-white`}>
               {course.semester}
             </span>
           </div>
@@ -145,5 +149,3 @@ function CourseCard({ course, onViewDetails }) {
     return null;
   }
 }
-
-export default CourseCard;

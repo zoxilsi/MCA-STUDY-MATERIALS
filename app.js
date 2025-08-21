@@ -43,6 +43,16 @@ function App() {
     const [selectedQuestionPaperSemester, setSelectedQuestionPaperSemester] = React.useState(null);
     const [selectedQuestionPaperSubject, setSelectedQuestionPaperSubject] = React.useState(null);
     
+    // Advanced search filters state
+    const [showAdvancedFilters, setShowAdvancedFilters] = React.useState(false);
+    const [filters, setFilters] = React.useState({
+      type: '',
+      credits: '',
+      hasNotes: ''
+    });
+    
+    const { isDarkMode } = useTheme();
+    
     const allCourses = curriculumData.getAllCourses();
     
     // Make handleCourseDetails globally available
@@ -78,6 +88,26 @@ function App() {
       setSelectedQuestionPaperSubject(null);
     };
 
+    // Toggle advanced filters
+    const handleToggleAdvancedFilters = () => {
+      setShowAdvancedFilters(!showAdvancedFilters);
+    };
+    
+    // Function to check if course has notes available
+    const hasNotes = (courseCode) => {
+      const coursesWithNotes = [
+        // '20MCA101', // Mathematical Foundations for Computing
+        '20MCA102', // Database Management
+        '20MCA103', // Digital Fundamentals
+        '20MCA104', // Computer Networks
+        '20MCA107', // Advanced Software Engineering
+        '20MCA131', // Programming Lab
+        '20MCA133', // Web Programming Lab
+        '20MCA188'  // Artificial Intelligence
+      ];
+      return coursesWithNotes.includes(courseCode);
+    };
+    
     // Make the semester navigation function globally available
     window.showQuestionPapersForSemester = handleShowQuestionPapersForSemester;
     
@@ -96,8 +126,25 @@ function App() {
         courses = curriculumData.getCoursesBySemester(selectedSemester);
       }
       
+      // Apply advanced filters
+      if (filters.type) {
+        courses = courses.filter(course => course.type === filters.type);
+      }
+      
+      if (filters.credits) {
+        courses = courses.filter(course => course.credits.toString() === filters.credits);
+      }
+      
+      if (filters.hasNotes) {
+        if (filters.hasNotes === 'yes') {
+          courses = courses.filter(course => hasNotes(course.code));
+        } else if (filters.hasNotes === 'no') {
+          courses = courses.filter(course => !hasNotes(course.code));
+        }
+      }
+      
       return courses;
-    }, [selectedSemester, searchTerm, allCourses]);
+    }, [selectedSemester, searchTerm, allCourses, filters]);
     
     const categorizedCourses = React.useMemo(() => {
       const theory = filteredCourses.filter(course => course.type === 'Theory');
@@ -148,16 +195,25 @@ function App() {
     }
     
     return (
-      <div className="min-h-screen bg-[#f0f0f0]" data-name="app" data-file="app.js">
+      <div className="min-h-screen transition-colors duration-200 bg-[#f0f0f0] dark:bg-gray-900" data-name="app" data-file="app.js">
         <Header 
           searchTerm={searchTerm}
           onSearchChange={setSearchTerm}
           selectedSemester={selectedSemester}
           onSemesterChange={setSelectedSemester}
           onQuestionPapersClick={handleQuestionPapersClick}
+          showAdvancedFilters={showAdvancedFilters}
+          onToggleAdvancedFilters={handleToggleAdvancedFilters}
         />
         
         <main className="max-w-6xl mx-auto p-6">
+          {/* Advanced Search Filters */}
+          <AdvancedSearchFilters 
+            filters={filters}
+            onFiltersChange={setFilters}
+            isVisible={showAdvancedFilters}
+            onToggle={handleToggleAdvancedFilters}
+          />
           <ProgressStats 
             courses={allCourses}
             selectedSemester={selectedSemester}
@@ -165,10 +221,10 @@ function App() {
           
           {searchTerm && (
             <div className="mb-6">
-              <h2 className="text-xl font-bold text-black mb-2">
+              <h2 className="text-xl font-bold mb-2 text-black dark:text-white">
                 Search results for "{searchTerm}"
               </h2>
-              <p className="text-gray-600">
+              <p className="text-gray-600 dark:text-gray-300">
                 {filteredCourses.length} course{filteredCourses.length !== 1 ? 's' : ''} found across all semesters
               </p>
             </div>
@@ -176,8 +232,8 @@ function App() {
           
           {!searchTerm && (
             <div className="mb-6">
-              <h2 className="text-2xl font-black text-black mb-2">{selectedSemester}</h2>
-              <p className="text-gray-600">
+              <h2 className="text-2xl font-black mb-2 text-black dark:text-white">{selectedSemester}</h2>
+              <p className="text-gray-600 dark:text-gray-300">
                 Explore {filteredCourses.length} courses organized by categories
               </p>
             </div>
@@ -192,11 +248,11 @@ function App() {
               </div>
             ) : (
               <div className="text-center py-12">
-                <div className="w-16 h-16 bg-gray-100 rounded-xl border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-xl border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] flex items-center justify-center mx-auto mb-4">
                   <div className="icon-search text-xl text-gray-400"></div>
                 </div>
-                <h3 className="text-lg font-bold text-black mb-2">No courses found</h3>
-                <p className="text-gray-600">Try searching with different keywords</p>
+                <h3 className="text-lg font-bold text-black dark:text-white mb-2">No courses found</h3>
+                <p className="text-gray-600 dark:text-gray-300">Try searching with different keywords</p>
               </div>
             )
           ) : (
@@ -261,19 +317,19 @@ function App() {
                 <div className="icon-user text-white text-lg"></div>
               </div>
               <div>
-                <h3 className="text-xl font-black text-black">Developer & Maintainer</h3>
-                <p className="text-sm text-gray-600">BrainFuel by zoxilsi</p>
+                <h3 className="text-xl font-black text-black dark:text-white">Developer & Maintainer</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">BrainFuel by zoxilsi</p>
               </div>
             </div>
             
-            <div className="bg-white rounded-xl p-6 border-3 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,0.9)]">
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border-3 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,0.9)]">
               <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="flex items-center gap-4">
                   <img src="assets/abhi.jpg" alt="ABHIJITH T" className="w-16 h-16 object-cover rounded-xl border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)]" />
                   <div>
-                    <h3 className="text-xl font-black text-black">ABHIJITH T</h3>
-                    <p className="text-gray-600 font-bold">Vibe Coder</p>
-                    <p className="text-sm text-gray-500 mt-1">MCA 2024-2026</p>
+                    <h3 className="text-xl font-black text-black dark:text-white">ABHIJITH T</h3>
+                    <p className="text-gray-600 dark:text-gray-300 font-bold">Vibe Coder</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">MCA 2024-2026</p>
                   </div>
                 </div>
                 
@@ -314,11 +370,11 @@ function App() {
                 </div>
               </div>
               
-              <div className="mt-6 pt-6 border-t-2 border-gray-200 text-center">
-                <p className="text-gray-600 font-bold">
+              <div className="mt-6 pt-6 border-t-2 border-gray-200 dark:border-gray-700 text-center">
+                <p className="text-gray-600 dark:text-gray-300 font-bold">
                   © 2025 MCA study materials. Made for students, by students.
                 </p>
-                <p className="text-sm text-gray-500 mt-2">
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
                   Empowering MCA students with comprehensive study materials and resources
                 </p>
               </div>
@@ -349,6 +405,8 @@ function App() {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ErrorBoundary>
-    <App />
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
   </ErrorBoundary>
 );

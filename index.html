@@ -1,43 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>MCA Curriculum Tracker - APJ Abdul Kalam Technological
-            University</title>
-        <meta name="description"
-            content="Track your Master of Computer Applications curriculum progress and course details">
-        <meta name="keywords"
-            content="MCA, curriculum, university, courses, academic, tracker">
-        <meta property="og:title"
-            content="MCA Curriculum Tracker - APJ Abdul Kalam Technological University">
-        <meta property="og:description"
-            content="Track your Master of Computer Applications curriculum progress and course details">
-        <meta name="twitter:title"
-            content="MCA Curriculum Tracker - APJ Abdul Kalam Technological University">
-        <meta name="twitter:description"
-            content="Track your Master of Computer Applications curriculum progress and course details">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <script
-            src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
-        <script
-            src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
-        <script
-            src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link
-            href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css"
-            rel="stylesheet">
-        <link rel="icon" type="image/jpeg" href="assets/fav-study.jpg">
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>MCA Curriculum Tracker - APJ Abdul Kalam Technological
+        University</title>
+    <meta name="description"
+        content="Track your Master of Computer Applications curriculum progress and course details">
+    <meta name="keywords" content="MCA, curriculum, university, courses, academic, tracker">
+    <meta property="og:title" content="MCA Curriculum Tracker - APJ Abdul Kalam Technological University">
+    <meta property="og:description"
+        content="Track your Master of Computer Applications curriculum progress and course details">
+    <meta name="twitter:title" content="MCA Curriculum Tracker - APJ Abdul Kalam Technological University">
+    <meta name="twitter:description"
+        content="Track your Master of Computer Applications curriculum progress and course details">
 
-        <!-- Predefined Tailwind CSS, use it as needed, or update base on your -->
-        <style type="text/tailwindcss">
-    @layer base {
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+    <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
+    <link rel="icon" type="image/jpeg" href="assets/fav-study.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Predefined Tailwind CSS, use it as needed, or update base on your -->
+    <style type="text/tailwindcss">
+        @layer base {
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
@@ -64,37 +61,39 @@
     }
     </style>
 
-    </head>
-    <body>
-        <div id="root"></div>
-        <script type="text/babel" src="components/Header.js"></script>
-        <script type="text/babel" src="components/SemesterCard.js"></script>
-        <script type="text/babel" src="components/CourseCard.js"></script>
-        <script type="text/babel" src="components/CategorySection.js"></script>
-        <script type="text/babel" src="components/CourseDetailPage.js"></script>
-        <script type="text/babel" src="components/TheoryModules.js"></script>
-        <script type="text/babel" src="components/LabQuestions.js"></script>
-        <script type="text/babel" src="components/Hero.js"></script>
-        <script type="text/babel" src="components/ProgressStats.js"></script>
-        <script type="text/babel" src="components/QuestionPapers.js"></script>
-        <script type="text/babel"
-            src="components/QuestionPapersYear.js"></script>
-        <script type="text/babel" src="utils/curriculumData.js"></script>
-        <script type="text/babel" src="utils/courseContent.js"></script>
-        <script type="text/babel" src="utils/questionPapersData.js"></script>
-        <script type="text/babel" src="app.js"></script>
-        <script
-            src="/MCA-STUDY-MATERIALS/components/back-to-top.js"></script>
-        <footer
-            class="w-full bg-white border-t border-gray-300 text-center text-xs text-gray-400 py-2">
-            <span>
-                Non-profit, non-revenue educational project to help students
-                learn and share notes. No money is generated. For educational
-                use only. Not affiliated with APJ Abdul Kalam Technological
-                University. Copyright concerns? <a
-                    href="mailto:24mp2275@rit.ac.in" class="underline">Contact
-                    us</a>.
-            </span>
-        </footer>
-    </body>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel" src="components/ThemeContext.js"></script>
+    <script type="text/babel" src="components/Header.js"></script>
+    <script type="text/babel" src="components/SemesterCard.js"></script>
+    <script type="text/babel" src="components/CourseCard.js"></script>
+    <script type="text/babel" src="components/CategorySection.js"></script>
+    <script type="text/babel" src="components/CourseDetailPage.js"></script>
+    <script type="text/babel" src="components/TheoryModules.js"></script>
+    <script type="text/babel" src="components/LabQuestions.js"></script>
+    <script type="text/babel" src="components/Hero.js"></script>
+    <script type="text/babel" src="components/ProgressStats.js"></script>
+    <script type="text/babel" src="components/QuestionPapers.js"></script>
+    <script type="text/babel" src="components/QuestionPapersYear.js"></script>
+    <script type="text/babel" src="components/AdvancedSearchFilters.js"></script>
+    <script type="text/babel" src="utils/curriculumData.js"></script>
+    <script type="text/babel" src="utils/courseContent.js"></script>
+    <script type="text/babel" src="utils/questionPapersData.js"></script>
+    <script type="text/babel" src="app.js"></script>
+    <script src="./components/back-to-top.js"></script>
+    <footer
+        class="w-full bg-white dark:bg-gray-900 border-t border-gray-300 dark:border-gray-600 text-center text-xs text-gray-400 dark:text-gray-500 py-2 transition-colors duration-200">
+        <span>
+            Non-profit, non-revenue educational project to help students
+            learn and share notes. No money is generated. For educational
+            use only. Not affiliated with APJ Abdul Kalam Technological
+            University. Copyright concerns? <a href="mailto:24mp2275@rit.ac.in"
+                class="underline text-blue-500 dark:text-blue-400">Contact
+                us</a>.
+        </span>
+    </footer>
+</body>
+
 </html>

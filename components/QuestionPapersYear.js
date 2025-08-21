@@ -1,5 +1,3 @@
-import fs from 'fs';
-
 function QuestionPapersYear({ selectedSemester, selectedSubject, onBack }) {
   try {
     const years = [2020, 2021, 2022, 2023, 2024, 2025];
@@ -10,7 +8,7 @@ function QuestionPapersYear({ selectedSemester, selectedSubject, onBack }) {
       
       // Create blob and download
       const blob = new Blob([content], { type: 'application/pdf' });
-      const url = window.URL.createObjectURL(blob);
+      const url = window.URL.createObjectURL(blob); 
       const link = document.createElement('a');
       link.href = url;
       link.download = `${selectedSemester.replace(' ', '_')}_${year}_question_paper.pdf`;
@@ -21,13 +19,13 @@ function QuestionPapersYear({ selectedSemester, selectedSubject, onBack }) {
     };
 
     return (
-      <div className="min-h-screen bg-[#f0f0f0]" data-name="question-papers-year" data-file="components/QuestionPapersYear.js">
+      <div className="min-h-screen bg-[#f0f0f0] dark:bg-gray-900" data-name="question-papers-year" data-file="components/QuestionPapersYear.js">
         <div className="max-w-6xl mx-auto p-6">
           {/* Header */}
           <div className="mb-8">
             <button
               onClick={onBack}
-              className="flex items-center gap-2 px-4 py-2 bg-white text-black font-bold text-sm rounded-lg border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,0.9)] transition-all mb-4"
+              className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 text-black dark:text-white font-bold text-sm rounded-lg border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,0.9)] transition-all mb-4"
             >
               <div className="icon-arrow-left text-sm"></div>
               Back to Subjects
@@ -38,8 +36,8 @@ function QuestionPapersYear({ selectedSemester, selectedSubject, onBack }) {
                 <div className="icon-file-text text-2xl text-white"></div>
               </div>
               <div>
-                <h1 className="text-3xl font-black text-black">{selectedSubject?.name} ({selectedSubject?.code}) Papers</h1>
-                <p className="text-base text-gray-600 mt-1">Select a year to download the question paper</p>
+                <h1 className="text-3xl font-black text-black dark:text-white">{selectedSubject?.name} ({selectedSubject?.code}) Papers</h1>
+                <p className="text-base text-gray-600 dark:text-gray-300 mt-1">Select a year to download the question paper</p>
               </div>
             </div>
           </div>
@@ -69,7 +67,7 @@ function QuestionPapersYear({ selectedSemester, selectedSubject, onBack }) {
               return (
                 <div
                   key={year}
-                  className={`rounded-xl border-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.9)] ${available ? 'bg-white border-green-400 cursor-pointer hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,0.9)]' : 'bg-gray-100 border-gray-400 cursor-not-allowed opacity-75'}`}
+                  className={`rounded-xl border-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.9)] ${available ? 'bg-white dark:bg-gray-800 border-green-400 cursor-pointer hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,0.9)]' : 'bg-gray-100 dark:bg-gray-700 border-gray-400 cursor-not-allowed opacity-75'}`}
                   onClick={() => {
                     if (available) {
                       window.open(filePath, '_blank');
@@ -82,8 +80,8 @@ function QuestionPapersYear({ selectedSemester, selectedSubject, onBack }) {
                     </div>
                     
                     <div className="mb-2">
-                      <div className="text-lg font-black text-gray-700">{year}</div>
-                      <div className="text-xs text-gray-500">Question Paper</div>
+                      <div className="text-lg font-black text-gray-700 dark:text-gray-200">{year}</div>
+                      <div className="text-xs text-gray-500 dark:text-gray-400">Question Paper</div>
                     </div>
                     
                     <div className="flex items-center justify-center">
@@ -100,14 +98,14 @@ function QuestionPapersYear({ selectedSemester, selectedSubject, onBack }) {
           </div>
 
           {/* Quick Info */}
-          <div className="mt-8 bg-white rounded-xl p-4 border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.9)]">
+          <div className="mt-8 bg-white dark:bg-gray-800 rounded-xl p-4 border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.9)]">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] flex items-center justify-center">
                 <div className="icon-info text-white text-sm"></div>
               </div>
               <div>
-                <h3 className="text-sm font-black text-black">Quick Download</h3>
-                <p className="text-xs text-gray-600">Click any year to download the question paper instantly</p>
+                <h3 className="text-sm font-black text-black dark:text-white">Quick Download</h3>
+                <p className="text-xs text-gray-600 dark:text-gray-300">Click any year to download the question paper instantly</p>
               </div>
             </div>
           </div>
@@ -118,6 +116,4 @@ function QuestionPapersYear({ selectedSemester, selectedSubject, onBack }) {
     console.error('QuestionPapersYear component error:', error);
     return null;
   }
-}
-
-export default QuestionPapersYear; 
+} 
