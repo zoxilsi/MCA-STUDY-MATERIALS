@@ -1,3 +1,63 @@
+// Loading component for lazy-loaded components
+const LoadingSpinner = () => (
+  <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
+    <div className="text-center">
+      <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-500 mx-auto mb-4"></div>
+      <p className="text-gray-600 dark:text-gray-300">Loading...</p>
+    </div>
+  </div>
+);
+
+// Lazy load major components
+const HomePage = React.lazy(() => {
+  return new Promise(resolve => {
+    // Add artificial delay to demonstrate loading (remove in production)
+    setTimeout(() => {
+      resolve({ default: window.HomePage });
+    }, 100);
+  });
+});
+
+const CoursesPage = React.lazy(() => {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve({ default: window.CoursesPage });
+    }, 100);
+  });
+});
+
+const AboutPage = React.lazy(() => {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve({ default: window.AboutPage });
+    }, 100);
+  });
+});
+
+const ContactPage = React.lazy(() => {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve({ default: window.ContactPage });
+    }, 100);
+  });
+});
+
+const QuestionPapers = React.lazy(() => {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve({ default: window.QuestionPapers });
+    }, 100);
+  });
+});
+
+const QuestionPapersYear = React.lazy(() => {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve({ default: window.QuestionPapersYear });
+    }, 100);
+  });
+});
+
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
@@ -82,16 +142,18 @@ function App() {
     // Make the semester navigation function globally available
     window.showQuestionPapersForSemester = handleShowQuestionPapersForSemester;
 
-    // Handle Question Papers navigation
+    // Handle Question Papers navigation with Suspense
     if (currentPage === 'question-papers' && selectedQuestionPaperSemester && selectedQuestionPaperSubject) {
       return (
         <div>
           <Navigation currentPage={currentPage} onPageChange={setCurrentPage} />
-          <QuestionPapersYear 
-            selectedSemester={selectedQuestionPaperSemester}
-            selectedSubject={selectedQuestionPaperSubject}
-            onBack={handleBackFromQuestionPapersSubject}
-          />
+          <React.Suspense fallback={<LoadingSpinner />}>
+            <QuestionPapersYear 
+              selectedSemester={selectedQuestionPaperSemester}
+              selectedSubject={selectedQuestionPaperSubject}
+              onBack={handleBackFromQuestionPapersSubject}
+            />
+          </React.Suspense>
         </div>
       );
     }
@@ -100,11 +162,13 @@ function App() {
       return (
         <div>
           <Navigation currentPage={currentPage} onPageChange={setCurrentPage} />
-          <QuestionPapers 
-            selectedSemester={selectedQuestionPaperSemester}
-            onBack={handleBackFromQuestionPapers}
-            onSelectSubject={handleShowQuestionPapersForSubject}
-          />
+          <React.Suspense fallback={<LoadingSpinner />}>
+            <QuestionPapers 
+              selectedSemester={selectedQuestionPaperSemester}
+              onBack={handleBackFromQuestionPapers}
+              onSelectSubject={handleShowQuestionPapersForSubject}
+            />
+          </React.Suspense>
         </div>
       );
     }
@@ -113,26 +177,48 @@ function App() {
       return (
         <div>
           <Navigation currentPage={currentPage} onPageChange={setCurrentPage} />
-          <QuestionPapers 
-            onBack={handleBackFromQuestionPapers}
-          />
+          <React.Suspense fallback={<LoadingSpinner />}>
+            <QuestionPapers 
+              onBack={handleBackFromQuestionPapers}
+            />
+          </React.Suspense>
         </div>
       );
     }
     
-    // Render different pages based on currentPage state
+    // Render different pages based on currentPage state with Suspense
     const renderPage = () => {
       switch (currentPage) {
         case 'home':
-          return <HomePage />;
+          return (
+            <React.Suspense fallback={<LoadingSpinner />}>
+              <HomePage />
+            </React.Suspense>
+          );
         case 'courses':
-          return <CoursesPage />;
+          return (
+            <React.Suspense fallback={<LoadingSpinner />}>
+              <CoursesPage />
+            </React.Suspense>
+          );
         case 'about':
-          return <AboutPage />;
+          return (
+            <React.Suspense fallback={<LoadingSpinner />}>
+              <AboutPage />
+            </React.Suspense>
+          );
         case 'contact':
-          return <ContactPage />;
+          return (
+            <React.Suspense fallback={<LoadingSpinner />}>
+              <ContactPage />
+            </React.Suspense>
+          );
         default:
-          return <HomePage />;
+          return (
+            <React.Suspense fallback={<LoadingSpinner />}>
+              <HomePage />
+            </React.Suspense>
+          );
       }
     };
 

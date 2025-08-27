@@ -17,20 +17,50 @@
     <meta name="twitter:description"
         content="Track your Master of Computer Applications curriculum progress and course details">
 
-    <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
-    <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js" as="script">
+    <link rel="preload" href="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js" as="script">
+    
+    <!-- Load React dependencies asynchronously -->
+    <script async src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
+    <script async src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script defer src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
+    
+    <!-- Load Tailwind CSS with better performance -->
+    <script>
+        // Load Tailwind CSS asynchronously to prevent render blocking
+        const loadTailwind = () => {
+            const script = document.createElement('script');
+            script.src = 'https://cdn.tailwindcss.com';
+            script.async = true;
+            document.head.appendChild(script);
+        };
+        
+        // Load after critical content
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', loadTailwind);
+        } else {
+            setTimeout(loadTailwind, 100);
+        }
+    </script>
     <script>
         tailwind.config = {
             darkMode: 'class'
         }
     </script>
-    <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
+    <!-- Preload and defer non-critical CSS -->
+    <link rel="preload" href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css"></noscript>
+    
     <link rel="icon" type="image/jpeg" href="assets/fav-study.jpg">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    
+    <!-- Defer Font Awesome loading -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
 
     <!-- Predefined Tailwind CSS, use it as needed, or update base on your -->
     <style type="text/tailwindcss">
@@ -94,6 +124,25 @@
     <script type="text/babel" src="utils/curriculumData.js"></script>
     <script type="text/babel" src="utils/courseContent.js"></script>
     <script type="text/babel" src="utils/questionPapersData.js"></script>
+    <script src="utils/imageOptimization.js"></script>
+    <script src="utils/dataLoader.js"></script>
+    <script src="utils/performance.js"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then((registration) => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch((registrationError) => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+    </script>
+    
     <script type="text/babel" src="app.js"></script>
     <script src="https://unpkg.com/qrcode.react/umd/qrcode.react.min.js"></script>
     <script src="./components/back-to-top.js"></script>

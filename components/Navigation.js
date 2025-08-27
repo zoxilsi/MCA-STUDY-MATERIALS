@@ -1,13 +1,26 @@
-function Navigation({ currentPage, onPageChange }) {
+const Navigation = React.memo(function Navigation({ currentPage, onPageChange }) {
   const { isDarkMode } = useTheme();
   
-  const navItems = [
+  // Memoize nav items to prevent recreation on every render
+  const navItems = React.useMemo(() => [
     { id: 'home', label: 'Home', icon: 'home' },
     { id: 'courses', label: 'Courses', icon: 'book-open' },
     { id: 'question-papers', label: 'Question Papers', icon: 'file-text' },
     { id: 'about', label: 'About', icon: 'info' },
     { id: 'contact', label: 'Contact', icon: 'mail' }
-  ];
+  ], []);
+
+  // Memoize click handlers
+  const handleHomeClick = React.useCallback(() => {
+    onPageChange('home');
+  }, [onPageChange]);
+
+  const handleNavClick = React.useCallback((pageId) => {
+    onPageChange(pageId);
+  }, [onPageChange]);
+
+  // Add mobile menu state
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
   return (
     <nav className="bg-white dark:bg-gray-800 border-b-3 border-black dark:border-gray-600 sticky top-0 z-50 transition-colors duration-200">
@@ -16,7 +29,7 @@ function Navigation({ currentPage, onPageChange }) {
           {/* Logo */}
           <div 
             className="flex items-center gap-3 cursor-pointer"
-            onClick={() => onPageChange('home')}
+            onClick={handleHomeClick}
           >
             <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] flex items-center justify-center">
               <div className="icon-graduation-cap text-white text-lg"></div>
@@ -32,7 +45,7 @@ function Navigation({ currentPage, onPageChange }) {
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => onPageChange(item.id)}
+                onClick={() => handleNavClick(item.id)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold text-sm transition-all ${
                   currentPage === item.id
                     ? 'bg-blue-500 text-white border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)]'
@@ -62,7 +75,7 @@ function Navigation({ currentPage, onPageChange }) {
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => onPageChange(item.id)}
+                onClick={() => handleNavClick(item.id)}
                 className={`flex items-center gap-2 px-3 py-2 rounded-lg font-bold text-xs transition-all ${
                   currentPage === item.id
                     ? 'bg-blue-500 text-white border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)]'

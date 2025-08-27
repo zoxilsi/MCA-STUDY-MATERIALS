@@ -1,0 +1,51 @@
+{
+  "bundleSize": {
+    "index.html": 8002,
+    "app.js": 7642,
+    "filesData.js": 10437,
+    "components/AboutPage.js": 10745,
+    "components/AdvancedSearchFilters.js": 5567,
+    "components/CategorySection.js": 6096,
+    "components/ContactPage.js": 8662,
+    "components/CourseCard.js": 5967,
+    "components/CourseDetailPage.js": 3855,
+    "components/CoursesPage.js": 11538,
+    "components/Hero.js": 2642,
+    "components/HomePage.js": 9677,
+    "components/LabQuestions.js": 22617,
+    "components/Navigation.js": 3921,
+    "components/ProgressStats.js": 3889,
+    "components/QuestionPapers.js": 19513,
+    "components/QuestionPapersYear.js": 6445,
+    "components/SemesterCard.js": 2318,
+    "components/ThemeContext.js": 2120,
+    "components/TheoryModules.js": 47911,
+    "components/back-to-top.js": 1466,
+    "utils/courseContent.js": 11531,
+    "utils/curriculumData.js": 13051,
+    "utils/dataLoader.js": 3708,
+    "utils/imageOptimization.js": 3308,
+    "utils/performance.js": 6989,
+    "utils/questionPapersData.js": 2040,
+    "assets/abhi.jpg": 1781653,
+    "assets/fav-study.jpg": 7717,
+    "total": 2031027
+  },
+  "fileCount": {
+    "JavaScript Files": 29,
+    "Component Files": 18,
+    "Utility Files": 6,
+    "Asset Files": 2,
+    "Total Files": 52
+  },
+  "optimizations": {
+    "React.lazy() Implementation": true,
+    "Service Worker": true,
+    "Image Optimization": true,
+    "Data Loader": true,
+    "Performance Monitoring": true,
+    "React.memo Usage": true,
+    "Async CSS Loading": true,
+    "Suspense Implementation": true
+  }
+}
