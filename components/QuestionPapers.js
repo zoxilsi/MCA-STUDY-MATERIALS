@@ -20,12 +20,14 @@ function QuestionPapers({ onBack, selectedSemester, onSelectSubject }) {
               onClick={onBack}
               className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 text-black dark:text-white font-bold text-sm rounded-lg border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,0.9)] transition-all mb-4"
             >
-              <div className="icon-arrow-left text-sm"></div>
-              Back to Semesters
+              <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded border-2 border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,0.9)] flex items-center justify-center">
+                <Icon name="arrow-left" className="text-xs text-white" />
+              </div>
+              {selectedSemester ? 'Back to Semesters' : 'Back to Home'}
             </button>
             <div className="flex items-center gap-4 mb-4">
               <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-xl border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.9)] flex items-center justify-center">
-                <div className="icon-file-text text-2xl text-white"></div>
+                <Icon name="file-text" className="text-2xl text-white" />
               </div>
               <div>
                 <h1 className="text-3xl font-black text-black dark:text-white">{selectedSemester} Subjects</h1>
@@ -46,7 +48,7 @@ function QuestionPapers({ onBack, selectedSemester, onSelectSubject }) {
                       <div className="p-6">
                         <div className="flex items-center justify-between mb-4">
                           <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] flex items-center justify-center">
-                            <div className="icon-book-open text-white text-lg"></div>
+                            <Icon name="book-open" className="text-white text-lg" />
                           </div>
                           <div className="text-right">
                             <div className="text-xs font-bold text-gray-500 dark:text-gray-400">{subject.code}</div>
@@ -76,7 +78,7 @@ function QuestionPapers({ onBack, selectedSemester, onSelectSubject }) {
                       <div className="p-6">
                         <div className="flex items-center justify-between mb-4">
                           <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] flex items-center justify-center">
-                            <div className="icon-book-open text-white text-lg"></div>
+                            <Icon name="book-open" className="text-white text-lg" />
                           </div>
                           <div className="text-right">
                             <div className="text-xs font-bold text-gray-500 dark:text-gray-400">{subject.code}</div>
@@ -106,7 +108,7 @@ function QuestionPapers({ onBack, selectedSemester, onSelectSubject }) {
                       <div className="p-6">
                         <div className="flex items-center justify-between mb-4">
                           <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] flex items-center justify-center">
-                            <div className="icon-book-open text-white text-lg"></div>
+                            <Icon name="book-open" className="text-white text-lg" />
                           </div>
                           <div className="text-right">
                             <div className="text-xs font-bold text-gray-500 dark:text-gray-400">{subject.code}</div>
@@ -136,7 +138,7 @@ function QuestionPapers({ onBack, selectedSemester, onSelectSubject }) {
                       <div className="p-6">
                         <div className="flex items-center justify-between mb-4">
                           <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] flex items-center justify-center">
-                            <div className="icon-book-open text-white text-lg"></div>
+                            <Icon name="book-open" className="text-white text-lg" />
                           </div>
                           <div className="text-right">
                             <div className="text-xs font-bold text-gray-500 dark:text-gray-400">{subject.code}</div>
@@ -166,7 +168,7 @@ function QuestionPapers({ onBack, selectedSemester, onSelectSubject }) {
                       <div className="p-6">
                         <div className="flex items-center justify-between mb-4">
                           <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] flex items-center justify-center">
-                            <div className="icon-book-open text-white text-lg"></div>
+                            <Icon name="book-open" className="text-white text-lg" />
                           </div>
                           <div className="text-right">
                             <div className="text-xs font-bold text-gray-500 dark:text-gray-400">{subject.code}</div>
@@ -191,7 +193,7 @@ function QuestionPapers({ onBack, selectedSemester, onSelectSubject }) {
         <div className="min-h-screen bg-[#f0f0f0] dark:bg-gray-900 flex items-center justify-center" data-name="question-papers-coming-soon" data-file="components/QuestionPapers.js">
           <div className="bg-white dark:bg-gray-800 rounded-xl p-8 border-3 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,0.9)] flex flex-col items-center max-w-md mx-auto">
             <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full border-3 border-purple-600 flex items-center justify-center mb-4">
-              <span className="icon-hourglass text-3xl text-white"></span>
+              <Icon name="hourglass" className="text-3xl text-white" />
             </div>
             <h2 className="text-2xl font-black text-purple-700 dark:text-purple-300 mb-2 text-center">Question Papers Coming Soon</h2>
             <p className="text-gray-600 dark:text-gray-300 text-center mb-2">We're preparing comprehensive question papers for {selectedSemester}. Stay tuned!</p>
@@ -208,13 +210,13 @@ function QuestionPapers({ onBack, selectedSemester, onSelectSubject }) {
               onClick={onBack}
               className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 text-black dark:text-white font-bold text-sm rounded-lg border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,0.9)] transition-all mb-4"
             >
-              <div className="icon-arrow-left text-sm"></div>
-              Back to Courses
+              <Icon name="arrow-left" className="text-sm" />
+              {selectedSemester ? 'Back to Semesters' : 'Back to Home'}
             </button>
             
             <div className="flex items-center gap-4 mb-4">
               <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-xl border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.9)] flex items-center justify-center">
-                <div className="icon-file-text text-2xl text-white"></div>
+                <Icon name="file-text" className="text-2xl text-white" />
               </div>
               <div>
                 <h1 className="text-3xl font-black text-black dark:text-white">Previous Year Question Papers</h1>
@@ -227,7 +229,7 @@ function QuestionPapers({ onBack, selectedSemester, onSelectSubject }) {
           <div className="mb-8 bg-gradient-to-r from-yellow-100 to-orange-100 dark:from-yellow-900/20 dark:to-orange-900/20 rounded-xl p-6 border-3 border-yellow-400 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.9)]">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] flex items-center justify-center">
-                <div className="icon-upload text-white text-lg"></div>
+                <Icon name="upload" className="text-white text-lg" />
               </div>
               <div>
                 <h3 className="text-lg font-black text-yellow-800 dark:text-yellow-200 mb-1">Uploading Soon!</h3>
@@ -247,7 +249,7 @@ function QuestionPapers({ onBack, selectedSemester, onSelectSubject }) {
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-4">
                     <div className={`w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] flex items-center justify-center`}>
-                      <div className={`icon-${semester.icon} text-white text-lg`}></div>
+                      <Icon name={semester.icon} className="text-white text-lg" />
                     </div>
                     <div className="text-right">
                       <div className="text-xs font-bold text-gray-500 dark:text-gray-400">SEM</div>
@@ -266,12 +268,12 @@ function QuestionPapers({ onBack, selectedSemester, onSelectSubject }) {
                   
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-                      <div className="icon-calendar text-xs"></div>
+                      <Icon name="calendar" className="text-xs" />
                       <span>6 years available</span>
                     </div>
                     
                     <div className="flex items-center gap-2 text-sm font-bold text-blue-600 dark:text-blue-400">
-                      <div className="icon-arrow-right text-xs"></div>
+                      <Icon name="arrow-right" className="text-xs" />
                       <span>View</span>
                     </div>
                   </div>
@@ -284,7 +286,7 @@ function QuestionPapers({ onBack, selectedSemester, onSelectSubject }) {
           <div className="mt-12 bg-white dark:bg-gray-800 rounded-xl p-6 border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.9)]">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-lg border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] flex items-center justify-center">
-                <div className="icon-info text-white text-lg"></div>
+                <Icon name="info" className="text-white text-lg" />
               </div>
               <div>
                 <h3 className="text-lg font-black text-black dark:text-white mb-2">About Question Papers</h3>

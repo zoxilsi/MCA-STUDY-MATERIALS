@@ -70,7 +70,6 @@ MCA-STUDY-MATERIALS/
 │   └── semester_iv/           
 ├── 📂 utils/                  # Utility functions and data
 │   ├── curriculumData.js      # University curriculum structure
-│   ├── courseContent.js       # Course content mapping
 │   └── questionPapersData.js  # Question paper metadata
 ├── 📂 scripts/                # Automation and utility scripts
 │   ├── add_notes.sh           # Automated note addition

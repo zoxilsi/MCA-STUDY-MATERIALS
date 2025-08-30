@@ -1,5 +1,14 @@
 {
+  "name": "mca-study-materials",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js"
+  },
   "dependencies": {
-    "csv-parser": "^3.2.0"
+    "csv-parser": "^3.2.0",
+    "node-fetch": "^3.3.2",
+    "pdf-parse": "^1.1.1",
+    "pdfjs-dist": "^4.10.38"
   }
 }

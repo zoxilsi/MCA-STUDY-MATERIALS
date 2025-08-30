@@ -8,8 +8,8 @@ function ThemeProvider({ children }) {
     if (saved !== null) {
       return JSON.parse(saved);
     }
-    // Default to system preference
-    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // Default to light mode
+    return false;
   });
 
   const toggleDarkMode = () => {

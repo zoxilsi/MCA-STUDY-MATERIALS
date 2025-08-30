@@ -148,15 +148,7 @@ cp your_data_science_notes.pdf notes/semester_iii/20MCA201/module1_introduction_
 ```
 
 ### **Step 4: Update Course Content (if needed)**
-If you need to add new modules or change file names, update `utils/courseContent.js`:
-```javascript
-{
-  title: 'Your Module Title',
-  topics: ['Topic 1', 'Topic 2', 'Topic 3'],
-  hours: '10',
-  fileName: 'your_file_name.extension'
-}
-```
+If you need to add new modules or change file names, ensure they follow the naming convention and are placed in the correct directory structure.
 
 ## File Naming Convention
 
@@ -237,7 +229,7 @@ The download system includes:
 ## Troubleshooting
 
 - **File not found errors**: Check that the file exists in the correct directory
-- **Download not working**: Ensure the file path is correct in `courseContent.js`
+- **Download not working**: Ensure the file path is correct in the directory structure
 - **Wrong file type**: Verify the file extension matches the expected format
 
 ## Best Practices
