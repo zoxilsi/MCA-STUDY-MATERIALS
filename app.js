@@ -137,6 +137,8 @@ function App() {
           return <AboutPage />;
         case 'contact':
           return <ContactPage />;
+        case 'feedback':
+          return <FeedbackPage onBack={() => setCurrentPage('home')} />;
         default:
           return <HomePage />;
       }
