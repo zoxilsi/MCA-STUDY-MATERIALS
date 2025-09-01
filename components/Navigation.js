@@ -86,34 +86,35 @@ function Navigation({ currentPage, onPageChange }) {
         {mobileMenuOpen && (
           <div className="md:hidden border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
             <div className="px-4 py-4 space-y-2">
-              {navItems.map((item) => (
+              {navItems.map((item, index) => (
                 <button
                   key={item.id}
+                  data-index={index}
                   onClick={() => {
                     onPageChange(item.id);
                     setMobileMenuOpen(false);
                   }}
-                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg font-bold text-sm transition-all ${
+                  className={`animate-menu-item w-full flex items-center gap-3 px-4 py-3 rounded-lg font-bold text-sm transition-all visibility-hidden ${
                     currentPage === item.id
                       ? 'bg-blue-500 text-white border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)]'
-                      : 'text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 border-2 border-transparent hover:border-gray-300 dark:hover:border-gray-600'
+                      : 'text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 border-2 border-transparent hover:border-gray-300 dark:hover:border-gray-600 shadow-[1px_1px_0px_0px_rgba(0,0,0,0.6)]'
                   }`}
                 >
                   <div className={`w-8 h-8 ${currentPage === item.id ? 'bg-white/20' : 'bg-gradient-to-r from-blue-500 to-purple-500'} rounded border ${currentPage === item.id ? 'border-white/30' : 'border-black'} shadow-[1px_1px_0px_0px_rgba(0,0,0,0.9)] flex items-center justify-center`}>
-                    <Icon name={item.icon} className={`text-sm ${currentPage === item.id ? 'text-white' : 'text-white'}`} />
+                    <Icon name={item.icon} className={`text-sm ${currentPage === item.id ? 'text-white' : 'text-black dark:text-white'}`} />
                   </div>
                   {item.label}
                 </button>
               ))}
-
               {/* Mobile Theme Toggle Button */}
               <button
+                data-index={navItems.length}
                 onClick={toggleDarkMode}
-                className="w-full flex items-center gap-3 px-4 py-3 rounded-lg font-bold text-sm text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-all border-2 border-transparent hover:border-gray-300 dark:hover:border-gray-600"
+                className="animate-menu-item w-full flex items-center gap-3 px-4 py-3 rounded-lg font-bold text-sm shadow-[1px_1px_0px_0px_rgba(0,0,0,0.6)] text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-all border-2 border-transparent hover:border-gray-300 dark:hover:border-gray-600 visibility-hidden"
                 title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
               >
                 <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded border border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,0.9)] flex items-center justify-center">
-                  <Icon name={isDarkMode ? 'sun' : 'moon'} className="text-sm text-white" />
+                  <Icon name={isDarkMode ? 'sun' : 'moon'} className="text-sm dark:text-white text-black" />
                 </div>
                 {isDarkMode ? 'Light' : 'Dark'}
               </button>
