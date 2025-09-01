@@ -7,8 +7,22 @@
   },
   "dependencies": {
     "csv-parser": "^3.2.0",
+    "motion": "^12.23.12",
     "node-fetch": "^3.3.2",
     "pdf-parse": "^1.1.1",
     "pdfjs-dist": "^4.10.38"
-  }
+  },
+  "description": "*🌟 Star us on GitHub*",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Monal-Jain01/MCA-STUDY-MATERIALS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Monal-Jain01/MCA-STUDY-MATERIALS/issues"
+  },
+  "homepage": "https://github.com/Monal-Jain01/MCA-STUDY-MATERIALS#readme"
 }
