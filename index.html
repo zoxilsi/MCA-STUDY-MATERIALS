@@ -21,7 +21,7 @@
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
+<script>
         tailwind.config = {
             darkMode: 'class'
         }
@@ -68,6 +68,38 @@
     .animate-fade-in-out {
       animation: fadeInOut 1s infinite;
     }
+
+         .visibility-hidden {
+            visibility: hidden;
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-35px);
+                opacity: 0;
+                visibility: hidden;
+            }
+            50%{
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        .animate-menu-item {
+            animation: slideIn 0.5s ease-out forwards;
+        }
+
+        .animate-menu-item[data-index="0"] { animation-delay: 0.1s; }
+        .animate-menu-item[data-index="1"] { animation-delay: 0.3s; }
+        .animate-menu-item[data-index="2"] { animation-delay: 0.5s; }
+        .animate-menu-item[data-index="3"] { animation-delay: 0.8s; }
+        .animate-menu-item[data-index="4"] { animation-delay: 1.0s; }
+        .animate-menu-item[data-index="5"] { animation-delay: 1.3s; }
+        .animate-menu-item[data-index="6"] { animation-delay: 1.5s; }
     </style>
 
 </head>
