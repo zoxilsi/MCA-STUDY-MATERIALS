@@ -145,13 +145,13 @@ function AboutPage() {
                     alt={member.name}
                     className="w-20 h-20 object-cover rounded-xl border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.9)] mx-auto mb-4"
                   />
-                  <h3 className="text-lg font-black text-black mb-1">
+                  <h3 className="text-lg font-black text-black dark:text-white mb-1">
                     {member.name}
                   </h3>
-                  <p className="text-blue-600 font-bold mb-2">
+                  <p className="text-blue-600 dark:text-blue-400 font-bold mb-2">
                     {member.role}
                   </p>
-                  <p className="text-sm text-gray-600 mb-3">
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
                     {member.description}
                   </p>
                 </div>
@@ -197,7 +197,7 @@ function AboutPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 gap-6">
             {[
               { label: 'Study Materials', value: '500+', icon: 'book' },
               { label: 'Contributors', value: '25+', icon: 'users' },
