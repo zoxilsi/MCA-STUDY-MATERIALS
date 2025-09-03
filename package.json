@@ -3,12 +3,31 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "dev": "npx live-server --port=8000 --open=/index.html"
   },
   "dependencies": {
     "csv-parser": "^3.2.0",
     "node-fetch": "^3.3.2",
     "pdf-parse": "^1.1.1",
     "pdfjs-dist": "^4.10.38"
-  }
+  },
+  "description": "*🌟 Star us on GitHub*",
+  "main": "app.js",
+  "devDependencies": {
+    "eslint": "^9.34.0",
+    "live-server": "^1.2.2",
+    "prettier": "^3.6.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shivang-jnv/MCA-STUDY-MATERIALS-fork.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shivang-jnv/MCA-STUDY-MATERIALS-fork/issues"
+  },
+  "homepage": "https://github.com/shivang-jnv/MCA-STUDY-MATERIALS-fork#readme"
 }
