@@ -71,15 +71,15 @@ MCA-STUDY-MATERIALS/
 ├── 📂 utils/                  # Utility functions and data
 │   ├── curriculumData.js       # University curriculum structure
 │   └── questionPapersData.js   # Question paper metadata
-├── generateDriveFiles.js       # Reads from Google Drive & generates Data.js
-├── generateFilesData.js        # Reads notes.csv & generates filesData.js
-├── notes.csv                   # Manual entry of study material links
-├── Data.js                     # Auto-generated (Drive API method)
-├── filesData.js                # Auto-generated (CSV method)
-├── service-account.json        # (Not committed, local only, Drive API key)
 ├── 📂 scripts/                 # Automation and utility scripts
 │   ├── add_notes.sh             # Automated note addition
 │   └── generate_sample_papers.py  # Sample paper generator
+├── 📄 generateDriveFiles.js       # Reads from Google Drive & generates Data.js
+├── 📄 generateFilesData.js        # Reads notes.csv & generates filesData.js
+├── 📄 notes.csv                   # Manual entry of study material links
+├── 📄 Data.js                     # Auto-generated (Drive API method)
+├── 📄 filesData.js                # Auto-generated (CSV method)
+├── 📄 service-account.json        # (Not committed, local only, Drive API key)
 ├── 📄 index.html              # Main application entry point
 ├── 📄 app.js                  # Core application logic
 └── 📄 README.md               # This documentation
@@ -256,19 +256,15 @@ We welcome all contributors with open arms! Whether you're a student, educator, 
    # Create Pull Request on GitHub
    ```
 
-### 🗂️ Notes Management & Automation  
+## 🗂️ Notes Management & Automation  
 
-To make adding study materials easier and consistent, we provide **two methods**:  
-
----
+If you want to add *Google drive links* of notes directly, to make the process easier and consistent, we provide **two methods**:  
 
 ### 1️. Automatic (Google Drive API)  
 
-- **File**: `generateDriveFiles.js`  
-- **Purpose**: Reads directly from Google Drive and generates a structured `Data.js` file with:  
-  - Downloadable links  
-  - Folder structure  
-  - PDF metadata (size, pages)  
+- **File**: `generateDriveFiles.js`
+- **Supporting Files**:  
+  - `Data.js` → Google Drive API reads from folder and auto-generates a structured `Data.js` file with Downloadable links.  
 
 #### ⚡ How to Use  
   ### 🔑 Setup Google Credentials  
@@ -282,8 +278,6 @@ node generateDriveFiles.js
 ```     
 6. The script will create/update `Data.js` in the root directory.  
 
-⭐  Recommended for maintainers managing large numbers of files in Google Drive.
-  
 
 ### 2️. Manual (CSV + Script Fallback)  
 
@@ -300,18 +294,14 @@ node generateDriveFiles.js
    ```
 This will fetch metadata (size, pages) and generate `filesData.js`.  
 
-⭐ Useful when Drive API access is unavailable or when you want manual control over added files.  
-
 ## 📌 Contribution Workflow for Adding Notes  
 
-1. Decide whether you want to add via **Google Drive API (automatic)** or **CSV (manual)**.  
+1. Decide whether you want to add drive links of notes via **Google Drive API (automatic)** or **CSV (manual)**.  
 2. Follow the respective method above.  
 3. Commit and push changes to:  
    - `Data.js` (if using Drive API)  
    - `filesData.js` (if using CSV/manual)  
 4. Submit a pull request 🚀  
-
----
 
 ## 📑 Sample Format for `notes.csv`  
 
@@ -320,7 +310,9 @@ semester,course_code,subject,module,part,link
 1,CS101,Data Structures,Module1,PartA,https://drive.google.com/file/d/FILE_ID/view?usp=sharing
 1,CS101,Data Structures,Module1,PartB,https://drive.google.com/file/d/FILE_ID/view?usp=sharing
 2,CS202,Operating Systems,Module2,PartA,https://drive.google.com/file/d/FILE_ID/view?usp=sharing
+```
 
+---
 
 #### For Code Contributions
 
