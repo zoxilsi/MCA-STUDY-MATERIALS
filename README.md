@@ -274,10 +274,10 @@ If you want to add *Google drive links* of notes directly, to make the process e
 2. Create a **Service Account** and download the JSON key file.  
 3. Rename the file to:  `security-account.json`.
 4. Place it in the **root of your project** (same folder as `package.json`). 
-5. Run the script:  
-```bash
-node generateDriveFiles.js 
-```     
+5. Run the script:
+      ```bash
+      node generateDriveFiles.js
+      ```     
 6. The script will create/update `Data.js` in the root directory.  
 
 
@@ -294,7 +294,7 @@ node generateDriveFiles.js
    ```bash
    node generateFilesData.js
    ```
-This will fetch metadata (size, pages) and generate `filesData.js`.  
+3. This will fetch metadata (size, pages) and generate `filesData.js`.  
 
 #### Contribution Workflow for Adding Notes  
 
@@ -521,13 +521,13 @@ PascalCase.js (e.g., CourseCard.js)
 ### � System Architecture
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    Client Layer (Browser)                    │
+│                    Client Layer (Browser)                   │
 ├─────────────────────────────────────────────────────────────┤
-│  React Components  │  Tailwind CSS  │  Lucide Icons        │
+│  React Components  │  Tailwind CSS  │  Lucide Icons         │
 ├─────────────────────────────────────────────────────────────┤
 │               Application Logic (app.js)                    │
 ├─────────────────────────────────────────────────────────────┤
-│     Data Layer     │   Utils Layer   │   Assets Layer      │
+│     Data Layer     │   Utils Layer   │   Assets Layer       │
 ├─────────────────────────────────────────────────────────────┤
 │              Static File System (GitHub)                    │
 ├─────────────────────────────────────────────────────────────┤
