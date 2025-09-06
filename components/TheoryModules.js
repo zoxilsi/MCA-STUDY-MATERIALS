@@ -31,38 +31,38 @@ function TheoryModules({ courseCode }) {
       borderColor: "border-purple-300",
       description: "Implement advanced data structures and algorithms in C++",
     },
-    "20MCA132": {
-      name: "Object Oriented Programming Lab",
-      language: "Java",
-      icon: "☕",
-      color: "from-orange-400 to-red-500",
-      bgColor: "bg-orange-50",
-      darkBgColor: "dark:bg-gray-900",
-      borderColor: "border-orange-300",
-      description:
-        "Learn OOP concepts with Java programming and design patterns",
-    },
-    "20MCA134": {
-      name: "Advanced DBMS Lab",
-      language: "SQL",
-      icon: "🗄️",
-      color: "from-indigo-400 to-blue-500",
-      bgColor: "bg-indigo-50",
-      darkBgColor: "dark:bg-gray-900",
-      borderColor: "border-indigo-300",
-      description:
-        "Master database management with SQL queries and optimization",
-    },
-    "20MCA136": {
-      name: "Networking & System Administration Lab",
-      language: "Linux/Bash",
-      icon: "🐧",
-      color: "from-gray-400 to-black",
-      bgColor: "bg-gray-50",
-      darkBgColor: "dark:bg-gray-900",
-      borderColor: "border-gray-300",
-      description: "Configure networks and manage systems with Linux commands",
-    },
+    // "20MCA132": {
+    //   name: "Object Oriented Programming Lab",
+    //   language: "Java",
+    //   icon: "☕",
+    //   color: "from-orange-400 to-red-500",
+    //   bgColor: "bg-orange-50",
+    //   darkBgColor: "dark:bg-gray-900",
+    //   borderColor: "border-orange-300",
+    //   description:
+    //     "Learn OOP concepts with Java programming and design patterns",
+    // },
+    // "20MCA134": {
+    //   name: "Advanced DBMS Lab",
+    //   language: "SQL",
+    //   icon: "🗄️",
+    //   color: "from-indigo-400 to-blue-500",
+    //   bgColor: "bg-indigo-50",
+    //   darkBgColor: "dark:bg-gray-900",
+    //   borderColor: "border-indigo-300",
+    //   description:
+    //     "Master database management with SQL queries and optimization",
+    // },
+    // "20MCA136": {
+    //   name: "Networking & System Administration Lab",
+    //   language: "Linux/Bash",
+    //   icon: "🐧",
+    //   color: "from-gray-400 to-black",
+    //   bgColor: "bg-gray-50",
+    //   darkBgColor: "dark:bg-gray-900",
+    //   borderColor: "border-gray-300",
+    //   description: "Configure networks and manage systems with Linux commands",
+    // },
   };
 
   // Check if it's a lab course
@@ -452,6 +452,106 @@ function TheoryModules({ courseCode }) {
       </div>
     );
   }
+  // Add this block inside your TheoryModules function
+if (courseCode === "20MCA105") {
+  const modules = [
+    {
+      name: "MODULE 1",
+      files: [
+        { name: "module1_part1.pdf", path: "https://drive.google.com/uc?export=download&id=13NKUmRhgRYG_5EWpebRqgBBbsnk5c-mQ" },
+        { name: "module1_part2.pdf", path: "https://drive.google.com/uc?export=download&id=1bQFUqCgLfhxRfqyvNv1kHx5FI4ijJXwt" },
+        { name: "module1_part3.pdf", path: "https://drive.google.com/uc?export=download&id=1seAgJ7F7iv5Vm3mX-h4AhL8V2aHX50VW" },
+      ],
+    },
+    {
+      name: "MODULE 2",
+      files: [
+        { name: "module2_part1.pdf", path: "https://drive.google.com/uc?export=download&id=13jzcDtQ9G7gBhL4YCSJXHR3AIRPBgWO9" },
+        { name: "module2_part2.pdf", path: "https://drive.google.com/uc?export=download&id=1o_K6KIK6_NB2DOrPEpA29ynBNA_3MPO0" },
+      ],
+    },
+    {
+      name: "MODULE 3",
+      files: [
+        { name: "module3_part1.pdf", path: "https://drive.google.com/uc?export=download&id=1cMNq8UJT8_RvvzD9edpJJBqSd6A22tz0" },
+        { name: "module3_part2.pdf", path: "https://drive.google.com/uc?export=download&id=1JrP_bVxsKa5iX9WdQRPTqZQSVYYuNz3V" },
+      ],
+    },
+    {
+      name: "MODULE 4",
+      files: [
+        { name: "module4.pdf", path: "https://drive.google.com/uc?export=download&id=13n7byOdnP9o-a8InaX1-QqMapuN7LBNp" },
+      ],
+    },
+    {
+      name: "MODULE 5",
+      files: [
+        { name: "module5_part1.pdf", path: "https://drive.google.com/uc?export=download&id=1UG3vH0DEfIg45E1RXwxzA4Utf8IE2BgR" },
+        { name: "module5_part2.pdf", path: "https://drive.google.com/uc?export=download&id=1ctQN42In9IT8AyTHtleSN-T9cwXdVSZ2" },
+      ],
+    },
+  ];
+
+  return (
+    <div className="space-y-8">
+      {modules.map((module) => (
+        <div key={module.name}>
+          <h3 className="font-bold text-lg mb-2 dark:text-white">{module.name}</h3>
+          <div className="space-y-2">
+            {module.files.map((file) => {
+              const idMatch = file.path.match(/id=(.*)$/);
+              const viewPath = idMatch
+                ? `https://drive.google.com/file/d/${idMatch[1]}/view`
+                : file.path;
+              return (
+                <div
+                  key={file.name}
+                  className="bg-white dark:bg-gray-800 border-2 border-black rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] p-2 flex items-center gap-2"
+                >
+                  <span className="flex-1 text-blue-700 dark:text-blue-400 font-semibold">{file.name}</span>
+                  <a
+                    href={viewPath}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-blue-400 to-blue-600 text-white font-bold rounded border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] transition-all"
+                  >
+                    <span className="icon-eye text-lg"></span>
+                    View
+                  </a>
+                  <a
+                    href={file.path}
+                    download
+                    className="flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-green-400 to-green-600 text-white font-bold rounded border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] transition-all"
+                  >
+                    <span className="icon-download text-lg"></span>
+                    Download
+                  </a>
+                  <a
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (navigator.share) {
+                        navigator.share({ title: file.name, url: viewPath });
+                      } else {
+                        navigator.clipboard.writeText(viewPath);
+                        alert("Link copied to clipboard!");
+                      }
+                    }}
+                    className="flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-purple-400 to-purple-600 text-white font-bold rounded border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] transition-all"
+                  >
+                    <span className="icon-share text-lg"></span>
+                    Share
+                  </a>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 
   // Custom structure for 20MCA107 Advanced Software Engineering
   if (courseCode === "20MCA107") {
