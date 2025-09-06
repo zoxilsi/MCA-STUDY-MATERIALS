@@ -121,7 +121,11 @@ function CourseCard({ course, onViewDetails }) {
          '20MCA107', // Advanced Software Engineering
          '20MCA131', // Programming Lab
          '20MCA133', // Web Programming Lab
-         '20MCA188'  // Artificial Intelligence
+         '20MCA188', // Artificial Intelligence
+         '20MCA105', // Advanced Data Structures
+         '20MCA132', // Object Oriented Programming Lab
+         '20MCA134', // Advanced DBMS Lab
+         '20MCA136', // Networking & System Administration Lab
        ];
        return coursesWithNotes.includes(courseCode);
      };

@@ -1,4 +1,7 @@
 // generateFilesData.js
+// This script reads a CSV file containing metadata about study materials,(manually add data in `notes.csv` file)
+// fetches each PDF from Google Drive, extracts its size and page count,
+// and generates downloadable links in `filesData.js`.
 import fs from 'fs';
 import path from 'path';
 import csv from 'csv-parser';

@@ -80,6 +80,265 @@ function LabQuestions({ course }) {
     },
   };
 
+  // ADDED Lab Notes for Semester 2 (Advanced DBMS Lab, Networking & System Administration Lab , OOP Lab)
+  if (course && course.code === "20MCA134") {
+    const modules = [
+      {
+        name: "Advanced DBMS Lab",
+        files: [
+          {
+            name: "sample_questions.pdf",
+            path: "https://drive.google.com/uc?export=download&id=11edUZrbAOcisZPQW3fCVVGNtl1mu_WWx",
+          },
+          {
+            name: "6_stored_procedure_cursor_trigger.pdf",
+            path: "https://drive.google.com/uc?export=download&id=1uuu5oit4IItmVvSyZZGNN_bAIbOSBYFq",
+          },
+          {
+            name: "5_aggregate_functions_2.pdf",
+            path: "https://drive.google.com/uc?export=download&id=1xm_CRT3tUDaYj00x-0-ixhqrEz8Los-X",
+          },
+          {
+            name: "4_aggregate_functions_1.pdf",
+            path: "https://drive.google.com/uc?export=download&id=1pN4MZ7anJR2nwuzMg7sbmaFunfiMoi8h",
+          },
+          {
+            name: "3_dml.pdf",
+            path: "https://drive.google.com/uc?export=download&id=1iy_RVQyBKC6TjXOBnEElwzKzot2h0Ixc",
+          },
+          {
+            name: "2_constraints.pdf",
+            path: "https://drive.google.com/uc?export=download&id=1X3QoulV6GqJEAk3Xwk_Xr961Vl9mNWpg",
+          },
+          {
+            name: "1_dbms_intro_lab.pdf",
+            path: "https://drive.google.com/uc?export=download&id=1lcBPYsbGyeCZRpIITx8sv_hgcs0hudco",
+          },
+        ],
+      },
+    ];
+
+    return (
+      <div className="space-y-8">
+        {modules.map((module) => (
+          <div key={module.name}>
+            <h3 className="font-bold text-lg mb-2 dark:text-white">{module.name}</h3>
+            <div className="space-y-2">
+              {module.files.map((file) => {
+                const idMatch = file.path.match(/id=(.*)$/);
+                const viewPath = idMatch
+                  ? `https://drive.google.com/file/d/${idMatch[1]}/view`
+                  : file.path;
+                return (
+                  <div
+                    key={file.name}
+                    className="bg-white dark:bg-gray-800 border-2 border-black rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] p-2 flex items-center gap-2"
+                  >
+                    <span className="flex-1 text-blue-700 dark:text-blue-400 font-semibold">{file.name}</span>
+                    <a
+                      href={viewPath}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-blue-400 to-blue-600 text-white font-bold rounded border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] transition-all"
+                    >
+                      <span className="icon-eye text-lg"></span> View
+                    </a>
+                    <a
+                      href={file.path}
+                      download
+                      className="flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-green-400 to-green-600 text-white font-bold rounded border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] transition-all"
+                    >
+                      <span className="icon-download text-lg"></span> Download
+                    </a>
+                    <a
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        if (navigator.share) {
+                          navigator.share({ title: file.name, url: viewPath });
+                        } else {
+                          navigator.clipboard.writeText(viewPath);
+                          alert("Link copied to clipboard!");
+                        }
+                      }}
+                      className="flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-purple-400 to-purple-600 text-white font-bold rounded border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] transition-all"
+                    >
+                      <span className="icon-share text-lg"></span> Share
+                    </a>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  if (course && course.code === "20MCA136") {
+    const modules = [
+      {
+        name: "Networking & System Administration Lab",
+        files: [
+          {
+            name: "4_wireshark_Network_Analysis.pdf",
+            path: "https://drive.google.com/uc?export=download&id=13flXA9vghciNX5Pb1T5VV2m864mJnj2R",
+          },
+          {
+            name: "3_familiarization_computer.pdf",
+            path: "https://drive.google.com/uc?export=download&id=1qbqiZQpVYavE-2z5Eteg1RgSjP_FMZci",
+          },
+          {
+            name: "2_functions_shell_scripting-2.pdf",
+            path: "https://drive.google.com/uc?export=download&id=17HXJjTO8YnA4KDBbfnZb_aQsgrhnpHo4",
+          },
+          {
+            name: "1_shell_script-1.pdf",
+            path: "https://drive.google.com/uc?export=download&id=1pAFk1-X9sRXggK05EdF4NllEFCJlXdf5",
+          },
+        ],
+      },
+    ];
+
+    return (
+      <div className="space-y-8">
+        {modules.map((module) => (
+          <div key={module.name}>
+            <h3 className="font-bold text-lg mb-2 dark:text-white">{module.name}</h3>
+            <div className="space-y-2">
+              {module.files.map((file) => {
+                const idMatch = file.path.match(/id=(.*)$/);
+                const viewPath = idMatch
+                  ? `https://drive.google.com/file/d/${idMatch[1]}/view`
+                  : file.path;
+                return (
+                  <div
+                    key={file.name}
+                    className="bg-white dark:bg-gray-800 border-2 border-black rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] p-2 flex items-center gap-2"
+                  >
+                    <span className="flex-1 text-blue-700 dark:text-blue-400 font-semibold">{file.name}</span>
+                    <a
+                      href={viewPath}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-blue-400 to-blue-600 text-white font-bold rounded border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] transition-all"
+                    >
+                      <span className="icon-eye text-lg"></span> View
+                    </a>
+                    <a
+                      href={file.path}
+                      download
+                      className="flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-green-400 to-green-600 text-white font-bold rounded border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] transition-all"
+                    >
+                      <span className="icon-download text-lg"></span> Download
+                    </a>
+                    <a
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        if (navigator.share) {
+                          navigator.share({ title: file.name, url: viewPath });
+                        } else {
+                          navigator.clipboard.writeText(viewPath);
+                          alert("Link copied to clipboard!");
+                        }
+                      }}
+                      className="flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-purple-400 to-purple-600 text-white font-bold rounded border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] transition-all"
+                    >
+                      <span className="icon-share text-lg"></span> Share
+                    </a>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  if (course && course.code === "20MCA132") {
+    const modules = [
+      {
+        name: "Object Oriented Programming Lab",
+        files: [
+          {
+            name: "OOP Java Complete Note.pdf",
+            path: "https://drive.google.com/uc?export=download&id=1kJETNo09-8zt-i9aRU6mQPRUenszxqQx",
+          },
+          {
+            name: "Practice Questions.pdf",
+            path: "https://drive.google.com/uc?export=download&id=1WJNYrvdyDykFhS-zq_YYfqhoS0wVx-P4",
+          },
+        ],
+      },
+    ];
+
+    return (
+      <div className="space-y-8">
+        {modules.map((module) => (
+          <div key={module.name}>
+            <h3 className="font-bold text-lg mb-2 dark:text-white">
+              {module.name}
+            </h3>
+            <div className="space-y-2">
+              {module.files.map((file) => {
+                const idMatch = file.path.match(/id=(.*)$/);
+                const viewPath = idMatch
+                  ? `https://drive.google.com/file/d/${idMatch[1]}/view`
+                  : file.path;
+                return (
+                  <div
+                    key={file.name}
+                    className="bg-white dark:bg-gray-800 border-2 border-black rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] p-2 flex items-center gap-2"
+                  >
+                    <span className="flex-1 text-blue-700 dark:text-blue-400 font-semibold">
+                      {file.name}
+                    </span>
+                    <a
+                      href={viewPath}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-blue-400 to-blue-600 text-white font-bold rounded border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] transition-all"
+                    >
+                      <span className="icon-eye text-lg"></span>
+                      View
+                    </a>
+                    <a
+                      href={file.path}
+                      download
+                      className="flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-green-400 to-green-600 text-white font-bold rounded border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] transition-all"
+                    >
+                      <span className="icon-download text-lg"></span>
+                      Download
+                    </a>
+                    <a
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        if (navigator.share) {
+                          navigator.share({ title: file.name, url: viewPath });
+                        } else {
+                          navigator.clipboard.writeText(viewPath);
+                          alert("Link copied to clipboard!");
+                        }
+                      }}
+                      className="flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-purple-400 to-purple-600 text-white font-bold rounded border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] transition-all"
+                    >
+                      <span className="icon-share text-lg"></span>
+                      Share
+                    </a>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+
   ///ADDED Lab Notes for Semester 1 (Programming Lab , Web Programming Lab)
   if (course && course.code === "20MCA131") {
     const modules = [
