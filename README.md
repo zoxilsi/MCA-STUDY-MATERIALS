@@ -275,9 +275,11 @@ If you want to add *Google drive links* of notes directly, to make the process e
 3. Rename the file to:  `security-account.json`.
 4. Place it in the **root of your project** (same folder as `package.json`). 
 5. Run the script:
+   
       ```bash
       node generateDriveFiles.js
-      ```     
+      ```
+      
 6. The script will create/update `Data.js` in the root directory.  
 
 
@@ -290,11 +292,13 @@ If you want to add *Google drive links* of notes directly, to make the process e
 
 #### ⚡ How to Use  
 1. Add your new links in `notes.csv` in the required format (see sample).  
-2. Run the script:  
+2. Run the script:
+
    ```bash
    node generateFilesData.js
    ```
-3. This will fetch metadata (size, pages) and generate `filesData.js`.  
+   
+4. This will fetch metadata (size, pages) and generate `filesData.js`.  
 
 #### Contribution Workflow for Adding Notes  
 
@@ -313,6 +317,7 @@ semester,course_code,subject,module,part,link
 1,CS101,Data Structures,Module1,PartB,https://drive.google.com/file/d/FILE_ID/view?usp=sharing
 2,CS202,Operating Systems,Module2,PartA,https://drive.google.com/file/d/FILE_ID/view?usp=sharing
 ```
+
 
 ---
 
