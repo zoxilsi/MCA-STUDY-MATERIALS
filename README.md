@@ -44,40 +44,51 @@
 ```
 MCA-STUDY-MATERIALS/
 ├── 📂 assets/                  # Static assets (images, icons, fonts)
-│   ├── abhi.jpg               # Profile images
-│   └── fav-study.jpg          # Favicon and branding
-├── 📂 components/             # React components (modular UI)
-│   ├── Header.js              # Navigation header
-│   ├── Hero.js                # Landing page hero section
-│   ├── SemesterCard.js        # Semester selection cards
-│   ├── CourseCard.js          # Individual course cards
-│   ├── CourseDetailPage.js    # Detailed course view
-│   ├── TheoryModules.js       # Theory content display
-│   ├── LabQuestions.js        # Lab exercises component
-│   ├── QuestionPapers.js      # Question paper browser
-│   ├── QuestionPapersYear.js  # Year-wise paper filtering
-│   ├── CategorySection.js     # Content categorization
-│   └── ProgressStats.js       # Study progress tracking
-├── 📂 notes/                  # Study materials repository
-│   ├── semester_i/            # First semester materials
-│   ├── semester_ii/           # Second semester materials
-│   ├── semester_iii/          # Third semester materials
-│   └── semester_iv/           # Fourth semester materials
-├── 📂 question_papers/        # Past examination papers
-│   ├── semester_i/            # Semester-wise question papers
-│   ├── semester_ii/           
-│   ├── semester_iii/          
-│   └── semester_iv/           
-├── 📂 utils/                  # Utility functions and data
-│   ├── curriculumData.js      # University curriculum structure
-│   └── questionPapersData.js  # Question paper metadata
-├── 📂 scripts/                # Automation and utility scripts
-│   ├── add_notes.sh           # Automated note addition
+│   ├── abhi.jpg                # Profile image
+│   └── fav-study.jpg           # Favicon / branding
+├── 📂 components/              # React components (modular UI)
+│   ├── Header.js               # Navigation header
+│   ├── Hero.js                 # Landing page hero section
+│   ├── SemesterCard.js         # Semester selection card
+│   ├── CourseCard.js           # Individual course card
+│   ├── CourseDetailPage.js     # Detailed course view
+│   ├── TheoryModules.js        # Theory content display
+│   ├── LabQuestions.js         # Lab exercises component
+│   ├── QuestionPapers.js       # Question paper browser
+│   ├── QuestionPapersYear.js   # Year-wise paper filtering
+│   ├── CategorySection.js      # Content categorization
+│   └── ProgressStats.js        # Study progress tracker
+├── 📂 notes/                   # Study materials repository
+│   ├── semester_i/             # First semester materials
+│   ├── semester_ii/            # Second semester materials
+│   ├── semester_iii/           # Third semester materials
+│   └── semester_iv/            # Fourth semester materials
+├── 📂 question_papers/         # Past examination papers
+│   ├── semester_i/             # Semester-wise question papers
+│   ├── semester_ii/            
+│   ├── semester_iii/           
+│   └── semester_iv/            
+├── 📂 utils/                   # Utility functions and data
+│   ├── curriculumData.js       # University curriculum structure
+│   └── questionPapersData.js   # Question paper metadata
+├── 📂 scripts/                 # Automation and utility scripts
+│   ├── add_notes.sh            # Automated note addition
 │   └── generate_sample_papers.py  # Sample paper generator
-├── 📄 index.html              # Main application entry point
-├── 📄 app.js                  # Core application logic
-└── 📄 README.md               # This documentation
+├── 📄 generateDriveFiles.js    # Reads from Google Drive & generates Data.js
+├── 📄 generateFilesData.js     # Reads notes.csv & generates filesData.js
+├── 📄 notes.csv                # Manual entry of study material links
+├── 📄 Data.js                  # Auto-generated (Drive API method)
+├── 📄 filesData.js             # Auto-generated (CSV method)
+├── 📄 service-account.json     # Local only, Drive API key
+├── 📄 index.html               # Main application entry point
+├── 📄 app.js                   # Core application logic
+└── 📄 README.md                # Project documentation
+
 ```
+
+
+
+
 
 ---
 
@@ -181,6 +192,7 @@ npx live-server --port=8000 --open=/index.html
 
 ---
 
+
 ## 🤝 Contributing
 
 We welcome all contributors with open arms! Whether you're a student, educator, developer, or just someone passionate about education, there's a place for you here.
@@ -244,6 +256,70 @@ We welcome all contributors with open arms! Whether you're a student, educator, 
    git push origin main
    # Create Pull Request on GitHub
    ```
+##
+
+#### For adding Google drive link Notes Management & Automation  
+
+If you want to add *Google drive links* of notes directly, to make the process easier and consistent, we provide **two methods**:  
+
+### 1️. Automatic (Google Drive API)  
+
+- **File**: `generateDriveFiles.js`
+- **Supporting Files**:  
+  - `Data.js` → Google Drive API reads from folder and auto-generates a structured `Data.js` file with Downloadable links.  
+
+#### ⚡ How to Use  
+  ### 🔑 Setup Google Credentials  
+1. Go to [Google Cloud Console](https://console.cloud.google.com/).  
+2. Create a **Service Account** and download the JSON key file.  
+3. Rename the file to:  `security-account.json`.
+4. Place it in the **root of your project** (same folder as `package.json`). 
+5. Run the script:
+   
+      ```bash
+      node generateDriveFiles.js
+      ```
+      
+6. The script will create/update `Data.js` in the root directory.  
+
+
+### 2️. Manual (CSV + Script Fallback)  
+
+- **File**: `generateFilesData.js`  
+- **Supporting Files**:  
+  - `notes.csv` → where contributors manually add Google Drive links and metadata.  
+  - `filesData.js` → auto-generated file that stores cleaned, downloadable links.  
+
+#### ⚡ How to Use  
+1. Add your new links in `notes.csv` in the required format (see sample).  
+2. Run the script:
+
+   ```bash
+   node generateFilesData.js
+   ```
+   
+4. This will fetch metadata (size, pages) and generate `filesData.js`.  
+
+#### Contribution Workflow for Adding Notes  
+
+1. Decide whether you want to add drive links of notes via **Google Drive API (automatic)** or **CSV (manual)**.  
+2. Follow the respective method above.  
+3. Commit and push changes to:  
+   - `Data.js` (if using Drive API)  
+   - `filesData.js` (if using CSV/manual)  
+4. Submit a pull request 🚀  
+
+📑 Sample Format for `notes.csv`  
+
+```csv
+semester,course_code,subject,module,part,link
+1,CS101,Data Structures,Module1,PartA,https://drive.google.com/file/d/FILE_ID/view?usp=sharing
+1,CS101,Data Structures,Module1,PartB,https://drive.google.com/file/d/FILE_ID/view?usp=sharing
+2,CS202,Operating Systems,Module2,PartA,https://drive.google.com/file/d/FILE_ID/view?usp=sharing
+```
+
+
+---
 
 #### For Code Contributions
 
@@ -450,13 +526,13 @@ PascalCase.js (e.g., CourseCard.js)
 ### � System Architecture
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    Client Layer (Browser)                    │
+│                    Client Layer (Browser)                   │
 ├─────────────────────────────────────────────────────────────┤
-│  React Components  │  Tailwind CSS  │  Lucide Icons        │
+│  React Components  │  Tailwind CSS  │  Lucide Icons         │
 ├─────────────────────────────────────────────────────────────┤
 │               Application Logic (app.js)                    │
 ├─────────────────────────────────────────────────────────────┤
-│     Data Layer     │   Utils Layer   │   Assets Layer      │
+│     Data Layer     │   Utils Layer   │   Assets Layer       │
 ├─────────────────────────────────────────────────────────────┤
 │              Static File System (GitHub)                    │
 ├─────────────────────────────────────────────────────────────┤
