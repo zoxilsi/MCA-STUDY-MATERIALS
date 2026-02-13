@@ -17,7 +17,7 @@ function Navigation({ currentPage, onPageChange }) {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div
-            className="flex items-center gap-2 md:gap-3 cursor-pointer"
+            className="flex-shrink-0 whitespace-nowrap flex items-center gap-2 md:gap-3 cursor-pointer"
             onClick={() => onPageChange('home')}
           >
             <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] flex items-center justify-center">
@@ -35,7 +35,7 @@ function Navigation({ currentPage, onPageChange }) {
               <button
                 key={item.id}
                 onClick={() => onPageChange(item.id)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold text-sm transition-all ${
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md font-semibold text-xs md:text-sm transition-all ${
                   currentPage === item.id
                     ? 'bg-blue-500 text-white border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)]'
                     : 'text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700'
@@ -51,13 +51,29 @@ function Navigation({ currentPage, onPageChange }) {
             {/* Theme Toggle Button */}
             <button
               onClick={toggleDarkMode}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg font-bold text-sm text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-all border-2 border-transparent hover:border-gray-300 dark:hover:border-gray-600"
+              className="flex items-center gap-2 px-3 py-2 rounded-md font-semibold text-sm text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-all border-2 border-transparent hover:border-gray-300 dark:hover:border-gray-600"
               title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
             >
               <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded border border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,0.9)] flex items-center justify-center">
                 <Icon name={isDarkMode ? 'sun' : 'moon'} className="text-xs text-white" />
               </div>
               {isDarkMode ? 'Light' : 'Dark'}
+            </button>
+
+            {/* Feedback Button (Desktop) */}
+            <button
+              onClick={() => onPageChange('feedback')}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md font-semibold text-xs md:text-sm transition-all ${
+                currentPage === 'feedback'
+                  ? 'bg-blue-500 text-white border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)]'
+                  : 'text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700'
+              }`}
+              title="Give Feedback"
+            >
+              <div className={`w-6 h-6 ${currentPage === 'feedback' ? 'bg-white/20' : 'bg-gradient-to-r from-blue-500 to-purple-500'} rounded border ${currentPage === 'feedback' ? 'border-white/30' : 'border-black'} shadow-[1px_1px_0px_0px_rgba(0,0,0,0.9)] flex items-center justify-center`}>
+                <Icon name="comment-dots" className="text-xs text-white" />
+              </div>
+              Feedback
             </button>
           </div>
 
@@ -117,6 +133,24 @@ function Navigation({ currentPage, onPageChange }) {
                   <Icon name={isDarkMode ? 'sun' : 'moon'} className="text-sm dark:text-white text-black" />
                 </div>
                 {isDarkMode ? 'Light' : 'Dark'}
+              </button>
+
+              {/* Feedback Button (Mobile) */}
+              <button
+                onClick={() => {
+                  onPageChange('feedback');
+                  setMobileMenuOpen(false);
+                }}
+                className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg font-bold text-sm transition-all ${
+                  currentPage === 'feedback'
+                    ? 'bg-blue-500 text-white border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)]'
+                    : 'text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 border-2 border-transparent hover:border-gray-300 dark:hover:border-gray-600'
+                }`}
+              >
+                <div className={`w-8 h-8 ${currentPage === 'feedback' ? 'bg-white/20' : 'bg-gradient-to-r from-blue-500 to-purple-500'} rounded border ${currentPage === 'feedback' ? 'border-white/30' : 'border-black'} shadow-[1px_1px_0px_0px_rgba(0,0,0,0.9)] flex items-center justify-center`}>
+                  <Icon name="comment-dots" className="text-sm text-white" />
+                </div>
+                Feedback
               </button>
             </div>
           </div>
