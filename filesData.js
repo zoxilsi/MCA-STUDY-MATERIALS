@@ -14,7 +14,7 @@ export const filesData = {
             "pages": 112
           },
           "3": {
-            "link": "https://drive.google.com/uc?export=download&id=1T0TotHjvokkiKYP54EwY6bd9ps4UFV2E",
+            "link": "https://drive.google.com/uc?export=&id=1T0TotHjvokkiKYP54EwY6bd9ps4UFV2E",
             "size": "0.57 MB",
             "pages": 19
           },
